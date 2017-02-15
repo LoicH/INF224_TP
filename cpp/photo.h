@@ -14,6 +14,12 @@ class Photo : public Media{
 			cout << "Photo object " << name << " created from " << pathName << endl ;
 		}
 		
+		virtual ~Photo() {
+			cout << "Deleting Photo object ";
+			cout << "\"" << m_name << "\"" << endl;
+		}
+
+		
 		void play() const{
 			system(("ristretto " + m_path).c_str());
 		}
@@ -27,3 +33,5 @@ class Photo : public Media{
 		float getLongitude() const {return p_longitude;}
 		
 };
+
+typedef shared_ptr<Photo> PhotoPtr;

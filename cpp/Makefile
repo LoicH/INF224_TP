@@ -4,7 +4,7 @@ PROG = project
 # Fichiers sources (NE PAS METTRE les .h ni les .o seulement les .cpp)
 SOURCES = main.cpp
 
-HEADERS = media.h film.h photo.h video.h
+HEADERS = media.h film.h photo.h video.h mediaGroup.h mediaStorage.h
 
 OBJETS = ${SOURCES:%.cpp=%.o}
 
@@ -16,20 +16,22 @@ LDFLAGS =
 LDLIBS =
 
 
-##########################################
-# Regles de construction/destruction des .o et de l'executable
-#
+######################################################################
+# 																	 #
+#    Regles de construction/destruction des .o et de l'executable    #
+# 																	 #
+######################################################################
 
 all: ${PROG}
 
 run: ${PROG}
 	./${PROG}
 
-${PROG}:  ${OBJETS} ${HEADERS}
+${PROG}:  ${OBJETS} 
 	${CXX} -o $@ ${CXXFLAGS} ${OBJETS}
 
-${OBJETS}: %.o: %.cpp
-	${CXX} ${CXXFLAGS} -c -o $@ $^
+${OBJETS}: %.o: %.cpp ${HEADERS}
+	${CXX} ${CXXFLAGS} -c -o $@ $<
 	
 clean:
 	$(RM) ${OBJETS} ${PROG}

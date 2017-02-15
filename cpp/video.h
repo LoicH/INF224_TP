@@ -16,10 +16,15 @@ class Video : public Media{
 			v_length = 10;
 		}
 		
-		virtual ~Video() {cout << "Deleting Video object " << m_name << endl;}
+		virtual ~Video() {
+			cout << "Deleting Video object " ;
+			cout << "\"" << m_name << "\"" << endl;
+		}
 		
 		void play() const{
 			system(("vlc " + m_path).c_str());
 		}
 	
 };
+
+typedef shared_ptr<Video> VideoPtr;

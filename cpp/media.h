@@ -1,9 +1,11 @@
 #pragma once
 #include <iostream>
+#include <memory>
 #include <string>
 //~ #include <cstdlib>
 
 using namespace std;
+
 
 /*! Class for modeling multimedia objects */
 
@@ -13,14 +15,21 @@ class Media {
     string m_path; /*!< Absolute path */
     
   public:
-    Media() { cout << "Media object created from nothing" << endl; }
+    Media() { 
+		cout << "Media object created from nothing" << endl;
+		m_name = "Default Media Name";
+		}
+    
     Media(const string name, const string path){
 	  cout << "Media object " << name << " created from " << path << endl;
 	  m_name = name;
-	  m_path = path;}
+	  m_path = path;
+	  }
 
-
-    virtual ~Media() {cout << "Deleting Media object " << m_name << endl;}
+    virtual ~Media() {
+		cout << "Deleting Media object ";
+		cout << "\"" << m_name << "\"" << endl;
+		}
 
     void setName(const string name) {m_name = name;}
     string getName() const {return m_name;}
@@ -34,3 +43,5 @@ class Media {
     virtual void play() const = 0;
 
 };
+
+typedef shared_ptr<Media> MediaPtr;

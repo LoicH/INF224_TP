@@ -16,7 +16,8 @@ class Film : public Video{
 		}
 		
 		~Film() {
-			cout << "Deleting Film object " << m_name << endl;
+			cout << "Deleting Film object " ;
+			cout << "\"" << m_name << "\"" << endl;
 			delete[] f_chapters;
 			}
 		
@@ -51,3 +52,5 @@ class Film : public Video{
 		}
 		
 };
+
+typedef shared_ptr<Film> FilmPtr;
