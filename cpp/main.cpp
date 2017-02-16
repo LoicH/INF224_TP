@@ -13,7 +13,7 @@ int main(){
 	//~ Media * otherMedia = make_shared<Media>("NAME", "PATH");
 	//~ otherMedia->print(cout);
 
-
+	MediaStorage::init();
 	cout << "Creating first photo" << endl;
 	Photo p ;
 	cout << "Creating second photo" << endl;
@@ -60,6 +60,10 @@ int main(){
 	MediaStorage::insertMedia(f1);
 	MediaStorage::insertMedia(f2);
 	
+	MediaStorage::newPhoto("newPhoto", "pathToNewPhoto");
+	
+	MediaStorage::printAll();
+		
 	return 0;
 
 

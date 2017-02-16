@@ -2,7 +2,7 @@
 PROG = project
 
 # Fichiers sources (NE PAS METTRE les .h ni les .o seulement les .cpp)
-SOURCES = main.cpp
+SOURCES = main.cpp mediaStorage.cpp
 
 HEADERS = media.h film.h photo.h video.h mediaGroup.h mediaStorage.h
 

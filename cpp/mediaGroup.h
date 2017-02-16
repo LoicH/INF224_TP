@@ -10,7 +10,6 @@ class MediaGroup: public list<MediaPtr>
 		MediaGroup() { 
 			cout << "MediaGroup object created" << endl;
 			mg_name = "Default Group";
-			this->push_back(make_shared<Photo>("Thumb up", "~/Downloads/thumbsup.jpg"));
 			}
 			
 		MediaGroup(string name){

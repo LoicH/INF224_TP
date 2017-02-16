@@ -8,14 +8,14 @@ class Photo : public Media{
 		
 	public:
 		Photo() : Media(){
-			cout << "Photo object created from nothing" << endl;
+			//~ cout << "Photo object created from nothing" << endl;
 		}
 		Photo(const string name, const string pathName) : Media(name, pathName){
-			cout << "Photo object " << name << " created from " << pathName << endl ;
+			//~ cout << "Photo object " << name << " created from " << pathName << endl ;
 		}
 		
 		virtual ~Photo() {
-			cout << "Deleting Photo object ";
+			//~ cout << "Deleting Photo object ";
 			cout << "\"" << m_name << "\"" << endl;
 		}
 

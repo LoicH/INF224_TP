@@ -7,17 +7,21 @@ class Film : public Video{
 		unsigned int* f_chapters; /*! The length of each chapter, in seconds */
 		size_t f_length;
 		
+		void println(const string c) const{
+			printf("[%s:%d] ", __FILE__, __LINE__);
+			println(c);
+		}
+		
 	public:
 		Film() : Video(){
-			cout << "Film object created from nothing" << endl;
+			//~ println("Film object created from nothing");
 		}
 		Film(const string name, const string pathName) : Video(name, pathName){
-			cout << "Film object " << name << " created from " << pathName << endl ;
+			//~ println("Film object " + name + " created from " + pathName);
 		}
 		
 		~Film() {
-			cout << "Deleting Film object " ;
-			cout << "\"" << m_name << "\"" << endl;
+			println("Deleting Film object \"" + m_name + "\"");
 			delete[] f_chapters;
 			}
 		
@@ -26,8 +30,7 @@ class Film : public Video{
 			for(size_t i=0; i<length; i++){
 				f_chapters[i] = chapters[i];
 				// Debug:
-				//~ cout << "Copying, i = " << i << ", src[i] = " << chapters[i];
-				//~ cout << ", dest[i] = " << f_chapters[i] << endl;
+				//~ println("Copy i="+i+",src[i]="+chapters[i]);
 				
 			}
 			f_length = length;
@@ -44,11 +47,11 @@ class Film : public Video{
 		size_t getNumberChapters() const{ return f_length; }
 			
 		void printChapters() const{
-			cout << "Chapters: " << endl;
+			println("Chapters: ");
 			for(size_t i = 0; i<f_length; i++){
-				cout << "Chapter " << i+1 << " starts at " << f_chapters[i] << endl;
+				println("Chapter " + i+1 + " starts at " + f_chapters[i]);
 			}
-			cout << "End of chapters." << endl;
+			println("End of chapters.");
 		}
 		
 };
