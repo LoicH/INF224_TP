@@ -6,14 +6,20 @@ class MediaGroup: public list<MediaPtr>
 {
 	private:
 		string mg_name;
+		
+		void println(string c){
+			printf("[%s:%d] ", __FILE__, __LINE__);
+			cout << c << endl;
+		}
+		
 	public:
 		MediaGroup() { 
-			cout << "MediaGroup object created" << endl;
+			println("MediaGroup object created");
 			mg_name = "Default Group";
 			}
 			
 		MediaGroup(string name){
-			cout << "MediaGroup object created" << endl;
+			println("MediaGroup object created");
 			mg_name = name;
 		}
 		
@@ -26,13 +32,14 @@ class MediaGroup: public list<MediaPtr>
 		}
 		
 		void printAll(){
-			cout << "Group " << getName() << " { "<< endl;
+			println("Group " + getName() + " { ");
 			MediaGroup::iterator it = this->begin();
 			for(; it != this->end(); it++){
+				printf("[%s:%d] ", __FILE__, __LINE__);
 				cout << "- " ;
 				(*it)->print(cout);
 			}
-			cout << "}" << endl;
+			println("}");
 		}
 	
 };

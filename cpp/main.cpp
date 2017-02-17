@@ -10,60 +10,107 @@
 
 int main(){
 
-	//~ Media * otherMedia = make_shared<Media>("NAME", "PATH");
-	//~ otherMedia->print(cout);
-
-	MediaStorage::init();
-	cout << "Creating first photo" << endl;
-	Photo p ;
-	cout << "Creating second photo" << endl;
-	PhotoPtr otherPhoto = make_shared<Photo>("YES", "~/Downloads/thumbsup.jpg");
-	otherPhoto->print(cout);
-	//~ otherPhoto->play();
-
-	cout << "Creating first video" << endl;
-	VideoPtr v = make_shared<Video>("Bunny", "~/Downloads/SampleVideo_640x360_1mb.mp4");
-
-
-
-	MediaPtr mediaList[LIST_LENGTH];
-
-	mediaList[0] =  otherPhoto;
-	mediaList[1] =  v;
-
-	cout << "Playing all media" << endl;
-	for(int i = 0; i<2; i++){
-		mediaList[i]->print(cout);
-	//~ mediaList[i]->play();
-	}
+	// =============================
+	// Testing basic types
+	// =============================
 	
-	cout << "Creating first film" << endl;
-	FilmPtr f1 = make_shared<Film>("Bunny2", "~/Downloads/SampleVideo_640x360_1mb.mp4");
-	cout << "Creating second film" << endl;
-	FilmPtr f2 = make_shared<Film>();
+	//~ cout << "Creating first photo" << endl;
+	//~ Photo p ;
+	//~ cout << "Creating second photo" << endl;
+	//~ PhotoPtr otherPhoto = make_shared<Photo>("YES", "~/Downloads/thumbsup.jpg");
+	//~ otherPhoto->print(cout);
+	//~ otherPhoto->play();
+	
+	//~ cout << "Creating first video" << endl;
+	//~ VideoPtr v = make_shared<Video>("Bunny", "~/Downloads/SampleVideo_640x360_1mb.mp4");
 
+	// =============================
+	// Testing the film class
+	// =============================
+	
+	//~ cout << "Creating first film" << endl;
+	//~ FilmPtr f1 = make_shared<Film>("Bunny2", "~/Downloads/SampleVideo_640x360_1mb.mp4");
+	//~ cout << "Creating second film" << endl;
+	//~ FilmPtr f2 = make_shared<Film>();
 
-	unsigned int chap[] = {0, 1, 3, 5, 7, 9};
-	f1->printChapters();
+	//~ unsigned int chap[] = {2, 3, 7};
+	
+	//~ cout << "Chapters of f1:" << endl;
+	//~ f1->printChapters();
 
-	f1->setChapters(chap, 6);
+	//~ f1->setChapters(chap, 3);
 	//~ f2->getChapters(chap);
 
-	f1->printChapters();
-	f2->printChapters();
+	//~ cout << "Chapters of f1:" << endl;
+	//~ f1->printChapters();
+	//~ cout << "Chapters of f2:" << endl;
+	//~ f2->printChapters();
+
+	// =============================
+	// Testing a handmade media list
+	// =============================
 	
-	MediaGrpPtr mg = make_shared<MediaGroup>();
-	cout << mg->getName() << endl;
-	mg->setName("Group1bis");
-	cout << mg->getName() << endl;
+	//~ MediaPtr mediaList[LIST_LENGTH];
+
+	//~ mediaList[0] =  otherPhoto;
+	//~ mediaList[1] =  v;
+
+	//~ cout << "Playing all media" << endl;
+	//~ for(int i = 0; i<2; i++){
+		//~ mediaList[i]->print(cout);
+	//~ mediaList[i]->play();
+	//~ }
 	
-	MediaStorage::insertMedia(f1);
-	MediaStorage::insertMedia(f2);
 	
-	MediaStorage::newPhoto("newPhoto", "pathToNewPhoto");
+
+	// =============================
+	// Testing the list of media
+	// =============================
 	
-	MediaStorage::printAll();
+	//~ MediaGrpPtr mg = make_shared<MediaGroup>();
+	//~ cout << mg->getName() << endl;
+	//~ mg->setName("Group1bis");
+	//~ cout << mg->getName() << endl;
+	
+	//~ mg->push_back(f1);
+	
+	//~ mg->printAll();
+	
+	// =============================
+	// Testing the media storage
+	// =============================
+	
+	PhotoPtr p = MediaStorage::newPhoto("newPhoto", "pathToNewPhoto");
+	VideoPtr v = MediaStorage::newVideo("newVideo", "pathToNewVideo");
+	FilmPtr  f = MediaStorage::newFilm("newFilm", "pathToNewFilm");
+	
+	MediaStorage::printAllMedia();
 		
+	MediaGrpPtr mg = MediaStorage::newMediaGrp("Group1");
+	MediaStorage::printAllGrp();
+	mg->push_back(p);
+	mg->push_back(v);
+	MediaStorage::printAllGrp();
+	
+	MediaGrpPtr mg2 = MediaStorage::newMediaGrp("Group2");
+	MediaStorage::printAllGrp();
+	mg2->push_back(f);
+	mg2->push_back(p);
+	MediaStorage::printAllGrp();
+	
+	MediaPtr pSearch = MediaStorage::findMedia("newPhoto");
+	if (pSearch != nullptr){
+		pSearch->print(cout);
+	} else {
+		cout << "Photo newPhoto not found..." << endl;
+	}
+	pSearch = MediaStorage::findMedia("noPhoto");
+	if (pSearch != nullptr){
+		pSearch->print(cout);
+	} else {
+		cout << "Photo noPhoTo not found..." << endl;
+	}
+	
 	return 0;
 
 

@@ -8,7 +8,7 @@ class Video : public Media{
 		
 		void println(string c){
 			printf("[%s:%d] ", __FILE__, __LINE__);
-			println(c);
+			cout << c << endl;
 		}
 		
 	public:
@@ -22,8 +22,7 @@ class Video : public Media{
 		}
 		
 		virtual ~Video() {
-			println("Deleting Video object") ;
-			println("\"" + m_name + "\"");
+			//~ println("Deleting Video object \"" + m_name + "\"");
 		}
 		
 		void play() const{

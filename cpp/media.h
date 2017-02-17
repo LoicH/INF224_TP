@@ -10,25 +10,30 @@ using namespace std;
 /*! Class for modeling multimedia objects */
 
 class Media {
-  protected:
-    string m_name;
-    string m_path; /*!< Absolute path */
-    
+	private:
+		void println(string c){
+			printf("[%s:%d] ", __FILE__, __LINE__);
+			cout << c << endl;
+		}
+	
+	protected:
+		string m_name;
+		string m_path; /*!< Absolute path */
+
   public:
     Media() { 
-		cout << "Media object created from nothing" << endl;
+		println("Media object created from nothing");
 		m_name = "Default Media Name";
 		}
     
     Media(const string name, const string path){
-	  cout << "Media object " << name << " created from " << path << endl;
+	  println("Media object " + name + " created from " + path);
 	  m_name = name;
 	  m_path = path;
 	  }
 
     virtual ~Media() {
-		cout << "Deleting Media object ";
-		cout << "\"" << m_name << "\"" << endl;
+		println("Deleting Media object \"" + m_name + "\"");
 		}
 
     void setName(const string name) {m_name = name;}

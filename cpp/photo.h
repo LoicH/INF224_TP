@@ -6,17 +6,21 @@ class Photo : public Media{
 		float p_latitude;
 		float p_longitude;
 		
+		void println(string c){
+			printf("[%s:%d] ", __FILE__, __LINE__);
+			cout << c << endl;
+		}
+		
 	public:
 		Photo() : Media(){
-			//~ cout << "Photo object created from nothing" << endl;
+			//~ println("Photo object created from nothing");
 		}
 		Photo(const string name, const string pathName) : Media(name, pathName){
-			//~ cout << "Photo object " << name << " created from " << pathName << endl ;
+			//~ println("Photo object " + name + " created from " + pathName) ;
 		}
 		
 		virtual ~Photo() {
-			//~ cout << "Deleting Photo object ";
-			cout << "\"" << m_name << "\"" << endl;
+			//~ println("Deleting Photo object \"" + m_name + "\"");
 		}
 
 		

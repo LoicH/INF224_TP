@@ -5,11 +5,11 @@
 class Film : public Video{	
 	private:
 		unsigned int* f_chapters; /*! The length of each chapter, in seconds */
-		size_t f_length;
+		int f_length = -1; /*! Number of chapters. */
 		
 		void println(const string c) const{
 			printf("[%s:%d] ", __FILE__, __LINE__);
-			println(c);
+			cout << c << endl;
 		}
 		
 	public:
@@ -21,35 +21,47 @@ class Film : public Video{
 		}
 		
 		~Film() {
-			println("Deleting Film object \"" + m_name + "\"");
-			delete[] f_chapters;
+			//~ println("Deleting Film object \"" + m_name + "\"");
+			if(f_length >= 0){
+				delete[] f_chapters;
 			}
+		}
 		
-		void setChapters(const unsigned int chapters[], const size_t length) { 
+		void setChapters(const unsigned int chapters[], const int length) { 
+			//If there was previously an array:
+			if(f_length >= 0){
+				delete[] f_chapters;
+			}
 			f_chapters = new unsigned int[length];
-			for(size_t i=0; i<length; i++){
+			for(int i=0; i<length; i++){
 				f_chapters[i] = chapters[i];
 				// Debug:
 				//~ println("Copy i="+i+",src[i]="+chapters[i]);
 				
 			}
 			f_length = length;
-			printChapters();
 		}
 		
-		size_t getChapters(unsigned int * destination) const{
-			for(size_t i=0; i<f_length; i++){
+		/**
+		 * Returns the number of chapters and the array of chapters
+		 * @param destination a pointer to the destination array
+		 * @returns the number of chapters
+		 */
+		int getChapters(unsigned int * destination) const{
+			for(int i=0; i<f_length; i++){
 				destination[i] = f_chapters[i];
 			}
 			return f_length; 
 		}
 		
-		size_t getNumberChapters() const{ return f_length; }
+		int getNumberChapters() const{ return f_length; }
 			
 		void printChapters() const{
 			println("Chapters: ");
-			for(size_t i = 0; i<f_length; i++){
-				println("Chapter " + i+1 + " starts at " + f_chapters[i]);
+			for(int i = 0; i<f_length; i++){
+				printf("[%s:%d] ", __FILE__, __LINE__);
+				cout << "Chapter " << i+1;
+				cout << " starts at " << f_chapters[i] << endl;
 			}
 			println("End of chapters.");
 		}
