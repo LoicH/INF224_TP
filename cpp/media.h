@@ -7,10 +7,14 @@
 using namespace std;
 
 
-/*! Class for modeling multimedia objects */
+/*! Class modeling multimedia objects */
 
 class Media {
 	private:
+		/**
+		 * Used to log output.
+		 * @param c: the string to print. Should not contain newlines
+		 */
 		void println(string c){
 			printf("[%s:%d] ", __FILE__, __LINE__);
 			cout << c << endl;
@@ -18,7 +22,7 @@ class Media {
 	
 	protected:
 		string m_name;
-		string m_path; /*!< Absolute path */
+		string m_path; /*!< Absolute or relative path */
 
   public:
     Media() { 

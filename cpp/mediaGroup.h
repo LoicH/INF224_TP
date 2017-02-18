@@ -7,6 +7,10 @@ class MediaGroup: public list<MediaPtr>
 	private:
 		string mg_name;
 		
+		/**
+		 * Used to log output.
+		 * @param c: the string to print. Should not contain newlines
+		 */
 		void println(string c){
 			printf("[%s:%d] ", __FILE__, __LINE__);
 			cout << c << endl;

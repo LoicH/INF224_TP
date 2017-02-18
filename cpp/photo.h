@@ -1,40 +1,43 @@
 #pragma once
 #include "media.h"
 
+
+class MediaStorage;
+
+
 class Photo : public Media{
 	private:
 		float p_latitude;
 		float p_longitude;
 		
-		void println(string c){
-			printf("[%s:%d] ", __FILE__, __LINE__);
-			cout << c << endl;
-		}
+		/**
+		 * Used to log output.
+		 * @param c: the string to print. Should not contain newlines
+		 */
+		void println(string c);
 		
-	public:
-		Photo() : Media(){
-			//~ println("Photo object created from nothing");
-		}
-		Photo(const string name, const string pathName) : Media(name, pathName){
-			//~ println("Photo object " + name + " created from " + pathName) ;
-		}
 		
-		virtual ~Photo() {
-			//~ println("Deleting Photo object \"" + m_name + "\"");
-		}
+		Photo();
+		Photo(const string name, const string pathName);
+		
+		
+		// Only MediaStorage can create new Film objects
+		friend MediaStorage;
 
 		
-		void play() const{
-			system(("ristretto " + m_path).c_str());
-		}
+	public:
+		~Photo();
+
 		
-		void setLatitude(const float lat) {p_latitude = lat;}
+		void play() const;
 		
-		float getLatitude() const {return p_latitude;}
+		void setLatitude(const float lat);
 		
-		void setLongitude(const float longi) {p_longitude = longi;}
+		float getLatitude() const;
 		
-		float getLongitude() const {return p_longitude;}
+		void setLongitude(const float longi);
+		
+		float getLongitude() const;
 		
 };
 

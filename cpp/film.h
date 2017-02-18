@@ -2,70 +2,73 @@
 #include "video.h"
 #include <cstring>
 
+class MediaStorage;
+
 class Film : public Video{	
 	private:
-		unsigned int* f_chapters; /*! The length of each chapter, in seconds */
-		int f_length = -1; /*! Number of chapters. */
+		/*! The length of each chapter, in seconds */
+		unsigned int* f_chapters; 
 		
-		void println(const string c) const{
-			printf("[%s:%d] ", __FILE__, __LINE__);
-			cout << c << endl;
-		}
+		/*! Number of chapters. I use -1 to know if 
+			f_chapters was initialized. */
+		int f_length = -1; 
+		
+		/**
+		 * Used to log output.
+		 * @param c: the string to print. Should not contain newlines
+		 */
+		void println(const string c) const;
+		
+		/** 
+		 * Simple constructor
+		 */
+		Film();
+		
+		/**
+		 * Creates a new object and sets name and path.
+		 * @param name: the name of the object. Must be unique.
+		 * @param pathName: the path to the object (relative or absolute).
+		 */
+		Film(const string, const string);
+		
+		
+		// Only MediaStorage can create new Film objects
+		friend MediaStorage;
 		
 	public:
-		Film() : Video(){
-			//~ println("Film object created from nothing");
-		}
-		Film(const string name, const string pathName) : Video(name, pathName){
-			//~ println("Film object " + name + " created from " + pathName);
-		}
 		
-		~Film() {
-			//~ println("Deleting Film object \"" + m_name + "\"");
-			if(f_length >= 0){
-				delete[] f_chapters;
-			}
-		}
+		/**
+		 * Destroys the object and its members.
+		 */
+		~Film() ;
 		
-		void setChapters(const unsigned int chapters[], const int length) { 
-			//If there was previously an array:
-			if(f_length >= 0){
-				delete[] f_chapters;
-			}
-			f_chapters = new unsigned int[length];
-			for(int i=0; i<length; i++){
-				f_chapters[i] = chapters[i];
-				// Debug:
-				//~ println("Copy i="+i+",src[i]="+chapters[i]);
-				
-			}
-			f_length = length;
-		}
+		/**
+		* Sets the length and number of chapters.
+		* @param chapters: the length of each chapter in seconds
+		* @param length: the number of chapters
+		*/
+		void setChapters(const unsigned int chapters[], const int length);
 		
 		/**
 		 * Returns the number of chapters and the array of chapters
 		 * @param destination a pointer to the destination array
 		 * @returns the number of chapters
 		 */
-		int getChapters(unsigned int * destination) const{
-			for(int i=0; i<f_length; i++){
-				destination[i] = f_chapters[i];
-			}
-			return f_length; 
-		}
+		int getChapters(unsigned int * destination) const;
 		
-		int getNumberChapters() const{ return f_length; }
-			
-		void printChapters() const{
-			println("Chapters: ");
-			for(int i = 0; i<f_length; i++){
-				printf("[%s:%d] ", __FILE__, __LINE__);
-				cout << "Chapter " << i+1;
-				cout << " starts at " << f_chapters[i] << endl;
-			}
-			println("End of chapters.");
-		}
+		/**
+		 * Returns the number of chapters
+		 */
+		int getNumberChapters() const;
+		
+		
+		/**
+		 * Prints each chapter and its length.
+		 */
+		void printChapters() const;
+		
+		
 		
 };
 
-typedef shared_ptr<Film> FilmPtr;
+

@@ -10,6 +10,10 @@
 
 int main(){
 
+	typedef shared_ptr<Photo> PhotoPtr;
+	typedef shared_ptr<Video> VideoPtr;
+	typedef shared_ptr<Film> FilmPtr;
+
 	// =============================
 	// Testing basic types
 	// =============================
@@ -17,19 +21,19 @@ int main(){
 	//~ cout << "Creating first photo" << endl;
 	//~ Photo p ;
 	//~ cout << "Creating second photo" << endl;
-	//~ PhotoPtr otherPhoto = make_shared<Photo>("YES", "~/Downloads/thumbsup.jpg");
+	//~ PhotoPtr otherPhoto = make_shared<Photo>("YES", "media/thumbup.jpg");
 	//~ otherPhoto->print(cout);
 	//~ otherPhoto->play();
 	
 	//~ cout << "Creating first video" << endl;
-	//~ VideoPtr v = make_shared<Video>("Bunny", "~/Downloads/SampleVideo_640x360_1mb.mp4");
+	//~ VideoPtr v = make_shared<Video>("Paint", "media/Paint.mp4");
 
 	// =============================
 	// Testing the film class
 	// =============================
 	
 	//~ cout << "Creating first film" << endl;
-	//~ FilmPtr f1 = make_shared<Film>("Bunny2", "~/Downloads/SampleVideo_640x360_1mb.mp4");
+	//~ FilmPtr f1 = make_shared<Film>("CD", "media/cd.mp4");
 	//~ cout << "Creating second film" << endl;
 	//~ FilmPtr f2 = make_shared<Film>();
 
@@ -80,9 +84,9 @@ int main(){
 	// Testing the media storage
 	// =============================
 	
-	PhotoPtr p = MediaStorage::newPhoto("newPhoto", "pathToNewPhoto");
-	VideoPtr v = MediaStorage::newVideo("newVideo", "pathToNewVideo");
-	FilmPtr  f = MediaStorage::newFilm("newFilm", "pathToNewFilm");
+	PhotoPtr p = MediaStorage::newPhoto("newPhoto", "media/thumb_up.jpg");
+	VideoPtr v = MediaStorage::newVideo("newVideo", "media/cd.mp4");
+	FilmPtr  f = MediaStorage::newFilm("newFilm", "media/Paint.mp4");
 	
 	MediaStorage::printAllMedia();
 		
@@ -110,6 +114,24 @@ int main(){
 	} else {
 		cout << "Photo noPhoTo not found..." << endl;
 	}
+	
+	MediaStorage::printMedia("newVideo");
+	MediaStorage::printMedia("noVideo");
+	
+	
+	MediaStorage::playMedia("newFilm");
+	MediaStorage::playMedia("noFilm");
+	
+	MediaStorage::removeMedia("newFilm");
+	MediaStorage::removeMedia("noFilm");
+	
+	MediaStorage::playMedia("newFilm");
+	MediaStorage::playMedia("noFilm");
+	
+	MediaStorage::printGroup("Group1");
+	MediaStorage::printGroup("Group3");
+	
+	
 	
 	return 0;
 
