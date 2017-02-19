@@ -31,6 +31,7 @@ class Film : public Video{
 		 */
 		Film(const string, const string);
 		
+		Film(const string serialized);
 		
 		// Only MediaStorage can create new Film objects
 		friend MediaStorage;
@@ -68,7 +69,8 @@ class Film : public Video{
 		void printChapters() const;
 		
 		string toString() const;
-		
+		string serialize() const;
+
 };
 
 

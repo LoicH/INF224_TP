@@ -11,7 +11,7 @@ class MediaGroup: public list<MediaPtr>
 		 * Used to log output.
 		 * @param c: the string to print. Should not contain newlines
 		 */
-		void println(string c);
+		void println(string c) const;
 		
 	public:
 		MediaGroup();
@@ -23,6 +23,8 @@ class MediaGroup: public list<MediaPtr>
 		string getName();
 		
 		void printAll();
+		
+		string toString();
 	
 };
 

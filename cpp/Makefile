@@ -15,7 +15,7 @@ OBJETS += ${MAIN:%.cpp=%.o}
 
 CXX = g++
 CXXFLAGS = -std=c++11 -Wall -g # -O0 --coverage
-LDFLAGS = -lpthread
+LDFLAGS = -pthread
 
 
 ######################################################################

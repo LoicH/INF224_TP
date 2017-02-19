@@ -1,12 +1,12 @@
 #include "film.h"
 #include "mediaStorage.h"
-
+#include <sstream>
 
 /**
  * Simple constructor.
  */
 Film::Film() : Video(){
-	//~ println("Film object created from nothing");
+	println("Film object created from nothing");
 }
 		
 /**
@@ -15,8 +15,51 @@ Film::Film() : Video(){
  * @param pathName: the path to the object (relative or absolute).
  */
 Film::Film(const string name, const string pathName) : Video(name, pathName){
-	//~ println("Film object " + name + " created from " + pathName);
+	println("Film object " + name + " created from " + pathName);
 }		
+
+
+/**
+ * e.g. "Film,dog,~/Videos/dog.mkv,345,3,2 43 54"
+ */
+Film::Film(const string serial) : Video(){
+	//~println("Creating an object from a serialized representation");
+	stringstream ss;
+    ss.str(serial);
+    string className;
+    getline(ss, className, ',');
+    string objectName;
+    getline(ss, objectName, ',');
+    string path;
+    getline(ss, path, ',');
+    string length;
+    getline(ss, length, ',');
+    string nbChaptersStr;
+    getline(ss, nbChaptersStr, ',');
+    
+    
+	setName(objectName);
+	setPath(path);
+	setLength(stoi(length));
+	
+	int nbChaptersInt = stoi(nbChaptersStr);
+	
+	if(nbChaptersInt > -1){
+		int i;
+		unsigned int chapters[nbChaptersInt];
+		string chapLength;
+
+		for(i=0; i<nbChaptersInt; i++){
+			getline(ss, chapLength, ' ');
+			//~ println("Chapter n°"+to_string(i)+": "+chapLength);
+			chapters[i] = stoul(chapLength);
+		}
+		setChapters(chapters, nbChaptersInt);
+	}
+	
+	
+	
+}
 
 /**
  * Used to log output.
@@ -76,9 +119,21 @@ void Film::printChapters() const{
 string Film::toString() const{
 	string result = "Film \"" + m_name + "\" (" + m_path + ")\n";
 	for(int i = 0; i<f_length; i++){
-		result += "Chapter " + i+1;
-		result += " starts at " + f_chapters[i];
+		result += "Chapter " + to_string(i+1);
+		result += " starts at " + to_string(f_chapters[i]);
 		result += "\n";
 	}
+	return result;
+}
+
+string Film::serialize() const{
+	string result = "Film,"+m_name+","+m_path+",";
+	result += to_string(v_length);
+	result += ","+to_string(f_length)+",";
+	int i;
+	for(i=0; i<f_length; i++){
+		result += to_string(f_chapters[i]) + " ";
+	}
+	println("result = " + result);
 	return result;
 }

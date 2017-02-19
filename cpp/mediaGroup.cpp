@@ -6,19 +6,19 @@
  * Used to log output.
  * @param c: the string to print. Should not contain newlines
  */
-void MediaGroup::println(string c){
+void MediaGroup::println(string c) const{
 	printf("[%s:%d] ", __FILE__, __LINE__);
 	cout << c << endl;
 }
 
 MediaGroup::MediaGroup() { 
-	println("MediaGroup object created");
 	mg_name = "Default Group";
+	println("Media Group \"" + mg_name + "\" created");
 	}
 	
 MediaGroup::MediaGroup(string name){
-	println("MediaGroup object created");
 	mg_name = name;
+	println("Media Group \"" + mg_name + "\" created");
 }
 
 void MediaGroup::setName(string name){
@@ -40,3 +40,12 @@ void MediaGroup::printAll(){
 	println("}");
 }
 
+string MediaGroup::toString(){
+	string response = "Group " + getName() + " { ";
+	MediaGroup::iterator it = this->begin();
+	for(; it != this->end(); it++){
+		response += "- " + (*it)->toString() + "\n";
+	}
+	response += "}";
+	return response;
+}

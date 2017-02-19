@@ -15,7 +15,7 @@ class Media {
 		 * Used to log output.
 		 * @param c: the string to print. Should not contain newlines
 		 */
-		void println(string c);
+		void println(string c) const;
 	
 	protected:
 		string m_name;
@@ -39,6 +39,7 @@ class Media {
     virtual void play() const = 0;
     
     virtual string toString() const = 0;
+    virtual string serialize() const = 0;
 
 };
 

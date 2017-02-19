@@ -6,32 +6,35 @@ class MediaStorage;
 
 class Video : public Media{
 	private:
-		unsigned int v_length; /*! Length in seconds */
+		
 		
 		/**
 		 * Used to log output.
 		 * @param c: the string to print. Should not contain newlines
 		 */
-		void println(string c);
+		void println(string c) const;
 		
 		
 		// Only MediaStorage can create new Film objects
 		friend MediaStorage;
 		
 	protected:
+		
+		unsigned int v_length; /*! Length in seconds */
+		
 		Video();
 		Video(const string name, const string pathName);
-		
-		
-		
+		Video(const string serialized);
 	public:
 		
 		virtual ~Video();
 		
+		void setLength(const int length);
+		
 		void play() const;
 		
 		string toString() const;
-	
+		string serialize() const;
 };
 
 typedef shared_ptr<Video> VideoPtr;

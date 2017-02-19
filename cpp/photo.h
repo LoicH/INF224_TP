@@ -14,12 +14,18 @@ class Photo : public Media{
 		 * Used to log output.
 		 * @param c: the string to print. Should not contain newlines
 		 */
-		void println(string c);
+		void println(string c) const;
 		
 		
 		Photo();
 		Photo(const string name, const string pathName);
 		
+		/**
+		 * Constructor from serialized string
+		 * @param serialized the representation of the object
+		 * e.g. "Photo,dog,~/Photos/dog.jpg,34.5,65.4"
+		 */
+		Photo(const string serialized);
 		
 		// Only MediaStorage can create new Film objects
 		friend MediaStorage;
@@ -40,6 +46,8 @@ class Photo : public Media{
 		float getLongitude() const;
 		
 		string toString() const;
+		string serialize() const;
+
 };
 
 typedef shared_ptr<Photo> PhotoPtr;

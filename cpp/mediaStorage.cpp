@@ -17,8 +17,7 @@ void MediaStorage::insertMedia(MediaPtr m){
 		ms_mediaMap[name] = m;
 	}
 	else {
-		println("Cannot insert media \"" + name + "\":");
-		println("\tError: object already present" );
+		throw runtime_error("Error: Object \""+name+"\" already present");
 	}
 }
 
@@ -28,8 +27,7 @@ void MediaStorage::insertMediaGrp(MediaGrpPtr mg){
 		ms_grpMap[name] = mg;
 	}
 	else {
-		println("Cannot insert group \"" + name + "\":");
-		println("\tError: object already present" );
+		throw runtime_error("Error: Group \""+name+"\" already present");
 	}
 }
 
@@ -59,7 +57,9 @@ void MediaStorage::playMedia(const string name){
 	if(result != nullptr){
 		result->play();
 	} else{
-		println("Media object " + name + " not found.");
+		string err = "Cannot play " + name + ", object not found.";
+		println(err);
+		throw runtime_error("Error: "+err);
 	}
 }
 
@@ -68,7 +68,9 @@ void MediaStorage::printMedia(const string name){
 	if(result != nullptr){
 		result->print(cout);
 	} else{
-		println("Media object " + name + " not found.");
+		string err = "Cannot print " + name + ", object not found.";
+		println(err);
+		throw runtime_error("Error: "+err);
 	}
 }
 
@@ -76,8 +78,10 @@ void MediaStorage::printGroup(const string name){
 	MediaGrpPtr result = findMediaGrp(name);
 	if(result != nullptr){
 		result->printAll();
-	} else{
-		println("Media object " + name + " not found.");
+	} else {
+		string err = "Cannot print " + name + ", group not found.";
+		println(err);
+		throw runtime_error("Error: "+err);
 	}
 }
 
@@ -99,57 +103,54 @@ void MediaStorage::printAllGrp(){
 }
 
 shared_ptr<Photo> MediaStorage::newPhoto(string name, string path){
-	MediaPtr result = findMedia(name);
-	if (result == nullptr){
+	try {
 		shared_ptr<Photo> p(new Photo(name, path));
 		insertMedia((MediaPtr) p);
 		return p;
-	} else {
-		println("Cannot create photo \"" + name + "\"" );
-		println("\tError: object already present");
-		result->print(cout);
-		return nullptr;
+	} catch(exception const& e) {
+		string err = "Cannot create photo \"" + name + "\"" ;
+		println(err);
+		println(e.what());
+		throw runtime_error("Error: "+err);
 	}
 }
 
 shared_ptr<Video> MediaStorage::newVideo(string name, string path){
-	MediaPtr result = findMedia(name);
-	if (result == nullptr){
+	try {
 		shared_ptr<Video> p(new Video(name, path));
 		insertMedia((MediaPtr) p);
 		return p;
-	} else {
-		println("Cannot create video \"" + name + "\"" );
-		println("\tError: object already present: ");
-		result->print(cout);
-		return nullptr;
+	}  catch(exception const& e) {
+		string err = "Cannot create video \"" + name + "\"" ;
+		println(err);
+		println(e.what());
+		throw runtime_error("Error: "+err);
 	}
 }
 
 shared_ptr<Film> MediaStorage::newFilm(string name, string path){
-	MediaPtr result = findMedia(name);
-	if (result == nullptr){
+	try {
 		shared_ptr<Film> p(new Film(name, path));
 		insertMedia((MediaPtr) p);
 		return p;
-	} else {
-		println("Cannot create film \"" + name + "\"" );
-		println("\tError: object already present");
-		result->print(cout);
-		return nullptr;
+	}  catch(exception const& e) {
+		string err = "Cannot create film \"" + name + "\"" ;
+		println(err);
+		println(e.what());
+		throw runtime_error("Error: "+err);
 	}
 }
 
 MediaGrpPtr MediaStorage::newMediaGrp(string name){
-	MediaGrpPtr result = findMediaGrp(name);
-	if (result == nullptr){
+	try {
 		MediaGrpPtr p = make_shared<MediaGroup>(name);
 		insertMediaGrp(p);
 		return p;
-	} else {
-		println("Cannot create media group \"" + name + "\"" );
-		println("\tError: object already present");
-		return nullptr;
+	} catch(exception const& e) {
+		string err = "Cannot create group \"" + name + "\"" ;
+		println(err);
+		println(e.what());
+		throw runtime_error("Error: "+err);
 	}
 }	
 
@@ -163,6 +164,9 @@ void MediaStorage::removeMedia(string name){
 		}
 		ms_mediaMap.erase(name);
 		result.reset();
+	} else {
+		string err = "Error: Cannot remove media \""+name+"\": not found";
+		throw runtime_error(err);
 	}
 }
 
@@ -171,32 +175,43 @@ void MediaStorage::removeGroup(string name){
 	if (result != nullptr){
 		ms_grpMap.erase(name);
 		result.reset();
+	} else {
+		string err = "Error: Cannot remove group \""+name+"\": not found";
+		throw runtime_error(err);
 	}
 }
 
 
 
 string MediaStorage::handleRequest(string request){
-	std::stringstream ss;
+	stringstream ss;
     ss.str(request);
-    std::string command;
-    std::getline(ss, command, ' ');
+    string command;
+    getline(ss, command, ' ');
     
     string response;
     
     if(command == "print"){
-		std::string name;
-		std::getline(ss, name, ' ');
+		string name;
+		getline(ss, name, ' ');
+		//Searching for a media first
 		MediaPtr result = findMedia(name);
 		if(result != nullptr){
 			response = result->toString();
 		} else {
-			response = "Error: not found";
+			//Then searching for a group
+			MediaGrpPtr result = findMediaGrp(name);
+			if(result != nullptr){
+				response = result->toString();
+			}
+			else {
+				response = "Error: not found";
+			}
 		}
 	}
 	else if (command == "play") { 
-		std::string name;
-		std::getline(ss, name, ' ');
+		string name;
+		getline(ss, name, ' ');
 		MediaPtr result = findMedia(name);
 		if(result != nullptr){
 			result->play();
@@ -211,6 +226,30 @@ string MediaStorage::handleRequest(string request){
 	return response;
 }
 
+MediaPtr MediaStorage::fromString(string serialized){
+	stringstream ss;
+    ss.str(serialized);
+    string className;
+    getline(ss, className, ',');
+    if(className == "Photo"){
+		shared_ptr<Photo> p(new Photo(serialized));
+		insertMedia((MediaPtr) p);
+		return p;
+	} else if (className == "Video"){
+		shared_ptr<Video> p(new Video(serialized));
+		insertMedia((MediaPtr) p);
+		return p;
+	} else if (className == "Film"){
+		shared_ptr<Film> p(new Film(serialized));
+		insertMedia((MediaPtr) p);
+		return p;
+	}
+	else {
+		string err = "Error: input badly formatted: "+ serialized;
+		throw runtime_error(err);
+	}
+	
+}
 
 // Initializing members:
 MediaMap MediaStorage::ms_mediaMap = MediaMap();

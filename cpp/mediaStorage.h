@@ -41,6 +41,8 @@ class MediaStorage{
 		static void removeGroup(string name);
 		
 		static string handleRequest(string request);
+		
+		static MediaPtr fromString(string serialized);
 
 };
 
