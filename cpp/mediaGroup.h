@@ -11,40 +11,18 @@ class MediaGroup: public list<MediaPtr>
 		 * Used to log output.
 		 * @param c: the string to print. Should not contain newlines
 		 */
-		void println(string c){
-			printf("[%s:%d] ", __FILE__, __LINE__);
-			cout << c << endl;
-		}
+		void println(string c);
 		
 	public:
-		MediaGroup() { 
-			println("MediaGroup object created");
-			mg_name = "Default Group";
-			}
+		MediaGroup();
 			
-		MediaGroup(string name){
-			println("MediaGroup object created");
-			mg_name = name;
-		}
+		MediaGroup(string name);
 		
-		void setName(string name){
-			mg_name = name;
-			}
+		void setName(string name);
 		
-		string getName() {
-			return mg_name;
-		}
+		string getName();
 		
-		void printAll(){
-			println("Group " + getName() + " { ");
-			MediaGroup::iterator it = this->begin();
-			for(; it != this->end(); it++){
-				printf("[%s:%d] ", __FILE__, __LINE__);
-				cout << "- " ;
-				(*it)->print(cout);
-			}
-			println("}");
-		}
+		void printAll();
 	
 };
 

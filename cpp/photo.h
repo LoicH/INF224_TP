@@ -39,6 +39,7 @@ class Photo : public Media{
 		
 		float getLongitude() const;
 		
+		string toString() const;
 };
 
 typedef shared_ptr<Photo> PhotoPtr;

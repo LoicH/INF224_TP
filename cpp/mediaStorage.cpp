@@ -1,5 +1,5 @@
 #include "mediaStorage.h"
-
+#include <sstream>
 
 /**
  * Used to log output.
@@ -155,14 +155,60 @@ MediaGrpPtr MediaStorage::newMediaGrp(string name){
 
 
 void MediaStorage::removeMedia(string name){
-	MediaMap::iterator mediaIt = ms_mediaMap.find(name);
-	GrpMap::iterator  grpIt;
-	for(grpIt = ms_grpMap.begin(); grpIt != ms_grpMap.end(); grpIt++){
-		grpIt->second->remove(mediaIt->second);
+	MediaPtr result = findMedia(name);
+	if (result != nullptr){
+		GrpMap::iterator  grpIt;
+		for(grpIt = ms_grpMap.begin(); grpIt != ms_grpMap.end(); grpIt++){
+			grpIt->second->remove(result);
+		}
+		ms_mediaMap.erase(name);
+		result.reset();
 	}
-	ms_mediaMap.erase(mediaIt);
+}
 
-	
+void MediaStorage::removeGroup(string name){
+	MediaGrpPtr result = findMediaGrp(name);
+	if (result != nullptr){
+		ms_grpMap.erase(name);
+		result.reset();
+	}
+}
+
+
+
+string MediaStorage::handleRequest(string request){
+	std::stringstream ss;
+    ss.str(request);
+    std::string command;
+    std::getline(ss, command, ' ');
+    
+    string response;
+    
+    if(command == "print"){
+		std::string name;
+		std::getline(ss, name, ' ');
+		MediaPtr result = findMedia(name);
+		if(result != nullptr){
+			response = result->toString();
+		} else {
+			response = "Error: not found";
+		}
+	}
+	else if (command == "play") { 
+		std::string name;
+		std::getline(ss, name, ' ');
+		MediaPtr result = findMedia(name);
+		if(result != nullptr){
+			result->play();
+		} else {
+			response = "Error: not found";
+		}
+	}
+	else {
+		response = "Error: command not recognized";
+	}
+		
+	return response;
 }
 
 

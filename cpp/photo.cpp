@@ -32,3 +32,7 @@ float Photo::getLatitude() const {return p_latitude;}
 void Photo::setLongitude(const float longi) {p_longitude = longi;}
 
 float Photo::getLongitude() const {return p_longitude;}
+
+string Photo::toString() const{
+	return ("Photo \"" + m_name + "\" (" + m_path + ")\n");
+}

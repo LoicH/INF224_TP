@@ -15,41 +15,30 @@ class Media {
 		 * Used to log output.
 		 * @param c: the string to print. Should not contain newlines
 		 */
-		void println(string c){
-			printf("[%s:%d] ", __FILE__, __LINE__);
-			cout << c << endl;
-		}
+		void println(string c);
 	
 	protected:
 		string m_name;
 		string m_path; /*!< Absolute or relative path */
 
   public:
-    Media() { 
-		println("Media object created from nothing");
-		m_name = "Default Media Name";
-		}
+    Media();
     
-    Media(const string name, const string path){
-	  println("Media object " + name + " created from " + path);
-	  m_name = name;
-	  m_path = path;
-	  }
+    Media(const string name, const string path);
 
-    virtual ~Media() {
-		println("Deleting Media object \"" + m_name + "\"");
-		}
+    virtual ~Media();
 
-    void setName(const string name) {m_name = name;}
-    string getName() const {return m_name;}
+    void setName(const string name);
+    string getName() const;
     
-    void setPath(const string path) {m_path = path;}
-    string getPath() const {return m_path;}
+    void setPath(const string path);
+    string getPath() const;
     
-    void print(ostream & s/**< [in] output stream to print the info */) const{
-		s << "Media object " << m_name << " (" << m_path << ")" << endl;}
+    void print(ostream & s) const;
 
     virtual void play() const = 0;
+    
+    virtual string toString() const = 0;
 
 };
 

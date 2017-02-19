@@ -2,18 +2,20 @@
 PROG = project
 
 # Fichiers sources (NE PAS METTRE les .h ni les .o seulement les .cpp)
-SOURCES = main.cpp film.cpp mediaStorage.cpp photo.cpp
+SOURCES = film.cpp  photo.cpp media.cpp video.cpp  \
+		mediaStorage.cpp mediaGroup.cpp \
+		tcpserver.cpp cppsocket.cpp
 
-HEADERS = media.h film.h photo.h video.h mediaGroup.h mediaStorage.h
+MAIN = main.cpp
+
+HEADERS = ${SOURCES:%.cpp=%.h}
 
 OBJETS = ${SOURCES:%.cpp=%.o}
+OBJETS += ${MAIN:%.cpp=%.o}
 
 CXX = g++
 CXXFLAGS = -std=c++11 -Wall -g # -O0 --coverage
-LDFLAGS =
-
-# Exemple: LDLIBS = -L/usr/local/qt/lib -lqt
-LDLIBS =
+LDFLAGS = -lpthread
 
 
 ######################################################################
@@ -27,11 +29,11 @@ all: ${PROG}
 run: ${PROG}
 	./${PROG}
 
-${PROG}:  ${OBJETS} 
-	${CXX} -o $@ ${CXXFLAGS} ${OBJETS}
+${PROG}: ${OBJETS} 
+	${CXX} -o $@ ${CXXFLAGS} ${LDFLAGS} ${OBJETS}
 
 ${OBJETS}: %.o: %.cpp ${HEADERS}
-	${CXX} ${CXXFLAGS} -c -o $@ $<
+	${CXX} ${CXXFLAGS} ${LDFLAGS} -c -o $@ $<
 	
 clean:
 	$(RM) ${OBJETS} ${PROG}

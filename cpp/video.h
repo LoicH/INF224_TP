@@ -12,38 +12,25 @@ class Video : public Media{
 		 * Used to log output.
 		 * @param c: the string to print. Should not contain newlines
 		 */
-		void println(string c){
-			printf("[%s:%d] ", __FILE__, __LINE__);
-			cout << c << endl;
-		}
+		void println(string c);
 		
 		
 		// Only MediaStorage can create new Film objects
 		friend MediaStorage;
 		
 	protected:
-		Video() : Media(){
-			//~ println("Video object created from nothing");
-			v_length = 100;
-		}
-		Video(const string name, const string pathName) : Media(name, pathName){
-			//~ println("Video object " + name + " created from " + pathName);
-			v_length = 10;
-		}
+		Video();
+		Video(const string name, const string pathName);
 		
 		
 		
 	public:
 		
-		virtual ~Video() {
-			//~ println("Deleting Video object \"" + m_name + "\"");
-		}
+		virtual ~Video();
 		
-		void play() const{
-			system(("vlc " + m_path).c_str());
-		}
+		void play() const;
 		
-		
+		string toString() const;
 	
 };
 

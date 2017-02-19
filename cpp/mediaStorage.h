@@ -38,6 +38,9 @@ class MediaStorage{
 		static MediaGrpPtr newMediaGrp(string name);
 		
 		static void removeMedia(string name);
-	
+		static void removeGroup(string name);
+		
+		static string handleRequest(string request);
+
 };
 

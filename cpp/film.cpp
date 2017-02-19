@@ -72,3 +72,13 @@ void Film::printChapters() const{
 	}
 	println("End of chapters.");
 }
+
+string Film::toString() const{
+	string result = "Film \"" + m_name + "\" (" + m_path + ")\n";
+	for(int i = 0; i<f_length; i++){
+		result += "Chapter " + i+1;
+		result += " starts at " + f_chapters[i];
+		result += "\n";
+	}
+	return result;
+}

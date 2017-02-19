@@ -67,8 +67,9 @@ class Film : public Video{
 		 */
 		void printChapters() const;
 		
-		
+		string toString() const;
 		
 };
 
 
+typedef shared_ptr<Film> FilmPtr;
