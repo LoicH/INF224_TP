@@ -214,6 +214,7 @@ string MediaStorage::handleRequest(string request){
 		getline(ss, name, ' ');
 		MediaPtr result = findMedia(name);
 		if(result != nullptr){
+			response = "Playing";
 			result->play();
 		} else {
 			response = "Error: not found";
@@ -222,7 +223,8 @@ string MediaStorage::handleRequest(string request){
 	else {
 		response = "Error: command not recognized";
 	}
-		
+	
+	//~ println("Returning response: "+response);
 	return response;
 }
 

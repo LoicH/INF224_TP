@@ -53,7 +53,7 @@ void Video::play() const{
 }
 
 string Video::toString() const{
-	return ("Video \"" + m_name + "\" (" + m_path + ")\n");
+	return ("Video \"" + m_name + "\" (" + m_path + ")");
 }
 
 

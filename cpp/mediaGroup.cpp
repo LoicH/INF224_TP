@@ -44,7 +44,7 @@ string MediaGroup::toString(){
 	string response = "Group " + getName() + " { ";
 	MediaGroup::iterator it = this->begin();
 	for(; it != this->end(); it++){
-		response += "- " + (*it)->toString() + "\n";
+		response += (*it)->toString() + "|";
 	}
 	response += "}";
 	return response;

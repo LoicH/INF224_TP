@@ -42,3 +42,12 @@ Exemple :
 
 
 	
+#Procédure de test :
+J'ai inclu un fichier `testing.cpp` qui teste pas mal de méthodes définies
+dans ce TP, cela permet de vérifier assez rapidement que les méthodes
+marchent (ou ont l'air de marcher)
+
+Pour lancer ces tests : `make testing`
+
+(Il peut y avoir des conflits de définition d'objet `main` car `main.cpp`
+définit aussi un symbole de fonction `main`, donc si )

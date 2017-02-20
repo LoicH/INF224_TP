@@ -117,12 +117,12 @@ void Film::printChapters() const{
 }
 
 string Film::toString() const{
-	string result = "Film \"" + m_name + "\" (" + m_path + ")\n";
+	string result = "Film \"" + m_name + "\" (" + m_path + ") [";
 	for(int i = 0; i<f_length; i++){
-		result += "Chapter " + to_string(i+1);
-		result += " starts at " + to_string(f_chapters[i]);
-		result += "\n";
+		result += to_string(i+1);
+		result += ":" + to_string(f_chapters[i]) + ",";
 	}
+	result += "]";
 	return result;
 }
 
