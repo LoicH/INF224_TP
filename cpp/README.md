@@ -50,4 +50,5 @@ marchent (ou ont l'air de marcher)
 Pour lancer ces tests : `make testing`
 
 (Il peut y avoir des conflits de définition d'objet `main` car `main.cpp`
-définit aussi un symbole de fonction `main`, donc si )
+définit aussi un symbole de fonction `main`, donc si un conflit/une erreur 
+apparaît, vous pouvez tenter un `make clean`.)
