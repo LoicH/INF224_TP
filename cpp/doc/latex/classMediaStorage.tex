@@ -1,0 +1,284 @@
+\hypertarget{classMediaStorage}{}\section{Media\+Storage Class Reference}
+\label{classMediaStorage}\index{Media\+Storage@{Media\+Storage}}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Media\+Ptr \hyperlink{classMediaStorage_afd1c58d3d41cf932b0b091d346726996}{find\+Media} (string srch)
+\item 
+static Media\+Grp\+Ptr \hyperlink{classMediaStorage_afbc1491a61445a0fa70c69e4c78be356}{find\+Media\+Grp} (string srch)
+\item 
+static void \hyperlink{classMediaStorage_a53a717cd521376ef1d38bba485fff218}{play\+Media} (const string name)
+\item 
+static void \hyperlink{classMediaStorage_ac9f6b5047a11a5123c09885155cff2e0}{print\+Media} (const string name)
+\item 
+static void \hyperlink{classMediaStorage_abf9dcfa0c6647f32816f3cab13eb325b}{print\+Group} (const string name)
+\item 
+static void \hyperlink{classMediaStorage_a38497104de3ebadf0968e55e29b7e7ef}{print\+All\+Media} ()
+\item 
+static void \hyperlink{classMediaStorage_aad266fb25546eee62037193b533ac10a}{print\+All\+Grp} ()
+\item 
+static shared\+\_\+ptr$<$ \hyperlink{classPhoto}{Photo} $>$ \hyperlink{classMediaStorage_a22db05b2288f4ea728506fa632205335}{new\+Photo} (string name, string path)
+\item 
+static shared\+\_\+ptr$<$ \hyperlink{classVideo}{Video} $>$ \hyperlink{classMediaStorage_aec1d47d5d30f17bdb6ae443e464c4bd4}{new\+Video} (string name, string path)
+\item 
+static shared\+\_\+ptr$<$ \hyperlink{classFilm}{Film} $>$ \hyperlink{classMediaStorage_a55db96df35aae1348581b6fbc27a34bc}{new\+Film} (string name, string path)
+\item 
+static Media\+Grp\+Ptr \hyperlink{classMediaStorage_a0762b1452654e6d47fa93d7ad5001520}{new\+Media\+Grp} (string name)
+\item 
+static void \hyperlink{classMediaStorage_ae0c7f77a76c3496bfea91145ebd4acc5}{remove\+Media} (string name)
+\item 
+static void \hyperlink{classMediaStorage_a295d0fe139b82b0fbb351e17ee7759dd}{remove\+Group} (string name)
+\item 
+static string \hyperlink{classMediaStorage_a93e1a78d314ecb11e1024c322fa670f3}{handle\+Request} (string request)
+\item 
+static Media\+Ptr \hyperlink{classMediaStorage_a9a5a91b418dd9da61ca394f789c557fb}{from\+String} (string serialized)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{Media\+Storage@{Media\+Storage}!find\+Media@{find\+Media}}
+\index{find\+Media@{find\+Media}!Media\+Storage@{Media\+Storage}}
+\subsubsection[{\texorpdfstring{find\+Media(string srch)}{findMedia(string srch)}}]{\setlength{\rightskip}{0pt plus 5cm}Media\+Ptr Media\+Storage\+::find\+Media (
+\begin{DoxyParamCaption}
+\item[{string}]{srch}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classMediaStorage_afd1c58d3d41cf932b0b091d346726996}{}\label{classMediaStorage_afd1c58d3d41cf932b0b091d346726996}
+Find a media by name 
+\begin{DoxyParams}{Parameters}
+{\em srch} & The name of the searched media \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the object, or {\ttfamily nullptr} if nothing is found. 
+\end{DoxyReturn}
+\index{Media\+Storage@{Media\+Storage}!find\+Media\+Grp@{find\+Media\+Grp}}
+\index{find\+Media\+Grp@{find\+Media\+Grp}!Media\+Storage@{Media\+Storage}}
+\subsubsection[{\texorpdfstring{find\+Media\+Grp(string srch)}{findMediaGrp(string srch)}}]{\setlength{\rightskip}{0pt plus 5cm}Media\+Grp\+Ptr Media\+Storage\+::find\+Media\+Grp (
+\begin{DoxyParamCaption}
+\item[{string}]{srch}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classMediaStorage_afbc1491a61445a0fa70c69e4c78be356}{}\label{classMediaStorage_afbc1491a61445a0fa70c69e4c78be356}
+Find a group by name 
+\begin{DoxyParams}{Parameters}
+{\em srch} & The name of the searched group \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the group, or {\ttfamily nullptr} if nothing is found. 
+\end{DoxyReturn}
+\index{Media\+Storage@{Media\+Storage}!from\+String@{from\+String}}
+\index{from\+String@{from\+String}!Media\+Storage@{Media\+Storage}}
+\subsubsection[{\texorpdfstring{from\+String(string serialized)}{fromString(string serialized)}}]{\setlength{\rightskip}{0pt plus 5cm}Media\+Ptr Media\+Storage\+::from\+String (
+\begin{DoxyParamCaption}
+\item[{string}]{serialized}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classMediaStorage_a9a5a91b418dd9da61ca394f789c557fb}{}\label{classMediaStorage_a9a5a91b418dd9da61ca394f789c557fb}
+Create a new object from a serialized representation \index{Media\+Storage@{Media\+Storage}!handle\+Request@{handle\+Request}}
+\index{handle\+Request@{handle\+Request}!Media\+Storage@{Media\+Storage}}
+\subsubsection[{\texorpdfstring{handle\+Request(string request)}{handleRequest(string request)}}]{\setlength{\rightskip}{0pt plus 5cm}string Media\+Storage\+::handle\+Request (
+\begin{DoxyParamCaption}
+\item[{string}]{request}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classMediaStorage_a93e1a78d314ecb11e1024c322fa670f3}{}\label{classMediaStorage_a93e1a78d314ecb11e1024c322fa670f3}
+Process a request from a client 
+\begin{DoxyParams}{Parameters}
+{\em request} & A well formatted request.\\
+\hline
+\end{DoxyParams}
+e.\+g.\+: \char`\"{}print \mbox{[}name of media\mbox{]}\char`\"{} or \char`\"{}play \mbox{[}name of media\mbox{]}\char`\"{} \begin{DoxyReturn}{Returns}
+the response 
+\end{DoxyReturn}
+\index{Media\+Storage@{Media\+Storage}!new\+Film@{new\+Film}}
+\index{new\+Film@{new\+Film}!Media\+Storage@{Media\+Storage}}
+\subsubsection[{\texorpdfstring{new\+Film(string name, string path)}{newFilm(string name, string path)}}]{\setlength{\rightskip}{0pt plus 5cm}shared\+\_\+ptr$<$ {\bf Film} $>$ Media\+Storage\+::new\+Film (
+\begin{DoxyParamCaption}
+\item[{string}]{name, }
+\item[{string}]{path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classMediaStorage_a55db96df35aae1348581b6fbc27a34bc}{}\label{classMediaStorage_a55db96df35aae1348581b6fbc27a34bc}
+Create a new film 
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the film \\
+\hline
+{\em path} & The location of the file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a shared pointer to the object 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & if there is already a media object with the same name. \\
+\hline
+\end{DoxyExceptions}
+\index{Media\+Storage@{Media\+Storage}!new\+Media\+Grp@{new\+Media\+Grp}}
+\index{new\+Media\+Grp@{new\+Media\+Grp}!Media\+Storage@{Media\+Storage}}
+\subsubsection[{\texorpdfstring{new\+Media\+Grp(string name)}{newMediaGrp(string name)}}]{\setlength{\rightskip}{0pt plus 5cm}Media\+Grp\+Ptr Media\+Storage\+::new\+Media\+Grp (
+\begin{DoxyParamCaption}
+\item[{string}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classMediaStorage_a0762b1452654e6d47fa93d7ad5001520}{}\label{classMediaStorage_a0762b1452654e6d47fa93d7ad5001520}
+Create a new group of media 
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the group \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a shared pointer to the object 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & if there is already a group with the same name. \\
+\hline
+\end{DoxyExceptions}
+\index{Media\+Storage@{Media\+Storage}!new\+Photo@{new\+Photo}}
+\index{new\+Photo@{new\+Photo}!Media\+Storage@{Media\+Storage}}
+\subsubsection[{\texorpdfstring{new\+Photo(string name, string path)}{newPhoto(string name, string path)}}]{\setlength{\rightskip}{0pt plus 5cm}shared\+\_\+ptr$<$ {\bf Photo} $>$ Media\+Storage\+::new\+Photo (
+\begin{DoxyParamCaption}
+\item[{string}]{name, }
+\item[{string}]{path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classMediaStorage_a22db05b2288f4ea728506fa632205335}{}\label{classMediaStorage_a22db05b2288f4ea728506fa632205335}
+Create a new photo 
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the photo \\
+\hline
+{\em path} & The location of the file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a shared pointer to the object 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & if there is already a media object with the same name. \\
+\hline
+\end{DoxyExceptions}
+\index{Media\+Storage@{Media\+Storage}!new\+Video@{new\+Video}}
+\index{new\+Video@{new\+Video}!Media\+Storage@{Media\+Storage}}
+\subsubsection[{\texorpdfstring{new\+Video(string name, string path)}{newVideo(string name, string path)}}]{\setlength{\rightskip}{0pt plus 5cm}shared\+\_\+ptr$<$ {\bf Video} $>$ Media\+Storage\+::new\+Video (
+\begin{DoxyParamCaption}
+\item[{string}]{name, }
+\item[{string}]{path}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classMediaStorage_aec1d47d5d30f17bdb6ae443e464c4bd4}{}\label{classMediaStorage_aec1d47d5d30f17bdb6ae443e464c4bd4}
+Create a new video 
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the video \\
+\hline
+{\em path} & The location of the file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a shared pointer to the object 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & if there is already a media object with the same name. \\
+\hline
+\end{DoxyExceptions}
+\index{Media\+Storage@{Media\+Storage}!play\+Media@{play\+Media}}
+\index{play\+Media@{play\+Media}!Media\+Storage@{Media\+Storage}}
+\subsubsection[{\texorpdfstring{play\+Media(const string name)}{playMedia(const string name)}}]{\setlength{\rightskip}{0pt plus 5cm}void Media\+Storage\+::play\+Media (
+\begin{DoxyParamCaption}
+\item[{const string}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classMediaStorage_a53a717cd521376ef1d38bba485fff218}{}\label{classMediaStorage_a53a717cd521376ef1d38bba485fff218}
+Play a media 
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the media \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & if the media is not found \\
+\hline
+\end{DoxyExceptions}
+\index{Media\+Storage@{Media\+Storage}!print\+All\+Grp@{print\+All\+Grp}}
+\index{print\+All\+Grp@{print\+All\+Grp}!Media\+Storage@{Media\+Storage}}
+\subsubsection[{\texorpdfstring{print\+All\+Grp()}{printAllGrp()}}]{\setlength{\rightskip}{0pt plus 5cm}void Media\+Storage\+::print\+All\+Grp (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classMediaStorage_aad266fb25546eee62037193b533ac10a}{}\label{classMediaStorage_aad266fb25546eee62037193b533ac10a}
+Prints a human-\/readable representation of all the stored groups \index{Media\+Storage@{Media\+Storage}!print\+All\+Media@{print\+All\+Media}}
+\index{print\+All\+Media@{print\+All\+Media}!Media\+Storage@{Media\+Storage}}
+\subsubsection[{\texorpdfstring{print\+All\+Media()}{printAllMedia()}}]{\setlength{\rightskip}{0pt plus 5cm}void Media\+Storage\+::print\+All\+Media (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classMediaStorage_a38497104de3ebadf0968e55e29b7e7ef}{}\label{classMediaStorage_a38497104de3ebadf0968e55e29b7e7ef}
+Prints a human-\/readable representation of all the stored media \index{Media\+Storage@{Media\+Storage}!print\+Group@{print\+Group}}
+\index{print\+Group@{print\+Group}!Media\+Storage@{Media\+Storage}}
+\subsubsection[{\texorpdfstring{print\+Group(const string name)}{printGroup(const string name)}}]{\setlength{\rightskip}{0pt plus 5cm}void Media\+Storage\+::print\+Group (
+\begin{DoxyParamCaption}
+\item[{const string}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classMediaStorage_abf9dcfa0c6647f32816f3cab13eb325b}{}\label{classMediaStorage_abf9dcfa0c6647f32816f3cab13eb325b}
+Prints a human-\/readable representation of the group in the standard output 
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the group \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & if the group is not found \\
+\hline
+\end{DoxyExceptions}
+\index{Media\+Storage@{Media\+Storage}!print\+Media@{print\+Media}}
+\index{print\+Media@{print\+Media}!Media\+Storage@{Media\+Storage}}
+\subsubsection[{\texorpdfstring{print\+Media(const string name)}{printMedia(const string name)}}]{\setlength{\rightskip}{0pt plus 5cm}void Media\+Storage\+::print\+Media (
+\begin{DoxyParamCaption}
+\item[{const string}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classMediaStorage_ac9f6b5047a11a5123c09885155cff2e0}{}\label{classMediaStorage_ac9f6b5047a11a5123c09885155cff2e0}
+Prints a human-\/readable representation of the media in the standard output 
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the media \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & if the media is not found \\
+\hline
+\end{DoxyExceptions}
+\index{Media\+Storage@{Media\+Storage}!remove\+Group@{remove\+Group}}
+\index{remove\+Group@{remove\+Group}!Media\+Storage@{Media\+Storage}}
+\subsubsection[{\texorpdfstring{remove\+Group(string name)}{removeGroup(string name)}}]{\setlength{\rightskip}{0pt plus 5cm}void Media\+Storage\+::remove\+Group (
+\begin{DoxyParamCaption}
+\item[{string}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classMediaStorage_a295d0fe139b82b0fbb351e17ee7759dd}{}\label{classMediaStorage_a295d0fe139b82b0fbb351e17ee7759dd}
+Remove a group object 
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the group \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & if there is no stored group with this name \\
+\hline
+\end{DoxyExceptions}
+\index{Media\+Storage@{Media\+Storage}!remove\+Media@{remove\+Media}}
+\index{remove\+Media@{remove\+Media}!Media\+Storage@{Media\+Storage}}
+\subsubsection[{\texorpdfstring{remove\+Media(string name)}{removeMedia(string name)}}]{\setlength{\rightskip}{0pt plus 5cm}void Media\+Storage\+::remove\+Media (
+\begin{DoxyParamCaption}
+\item[{string}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classMediaStorage_ae0c7f77a76c3496bfea91145ebd4acc5}{}\label{classMediaStorage_ae0c7f77a76c3496bfea91145ebd4acc5}
+Remove a media object 
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the media \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & if there is no stored media with this name \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+media\+Storage.\+h\item 
+media\+Storage.\+cpp\end{DoxyCompactItemize}

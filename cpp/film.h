@@ -4,13 +4,18 @@
 
 class MediaStorage;
 
+/**
+ * Represents a movie, with chapters.
+ */
+
 class Film : public Video{	
 	private:
-		/*! The length of each chapter, in seconds */
+		/** The length of each chapter, in seconds */
 		unsigned int* f_chapters; 
 		
-		/*! Number of chapters. I use -1 to know if 
-			f_chapters was initialized. */
+		/** Number of chapters. 
+		 *
+		 * Default value: -1 */
 		int f_length = -1; 
 		
 		/**
@@ -20,17 +25,27 @@ class Film : public Video{
 		void println(const string c) const;
 		
 		/** 
-		 * Simple constructor
+		 * Default constructor
 		 */
 		Film();
 		
 		/**
-		 * Creates a new object and sets name and path.
+		 * Creates a new film object.
 		 * @param name: the name of the object. Must be unique.
 		 * @param pathName: the path to the object (relative or absolute).
 		 */
 		Film(const string, const string);
 		
+		/**
+		 * Creates a new film object from a serialized representation. 
+		 *
+		 * Format: "Film,[name],[path],[length],[n],[durations]" 
+		 *
+		 * where *n* is the number of chapters and *durations* is the 
+		 * list of the durations of each chapter, separated by the space
+		 * character.
+		 * e.g.: "Film,dog,~/Videos/dog.mkv,345,3,2 43 54"
+		 */
 		Film(const string serialized);
 		
 		// Only MediaStorage can create new Film objects
@@ -68,7 +83,22 @@ class Film : public Video{
 		 */
 		void printChapters() const;
 		
+		/**
+		 * Prints a representation of the film in the standard output.
+		 */
 		string toString() const;
+		
+		/**
+		 * Serializes the object.
+		 * @returns a string representing the object. 
+		 *
+		 * Format: "Film,[name],[path],[length],[n],[durations]" 
+		 *
+		 * where *n* is the number of chapters and *durations* is the 
+		 * list of the durations of each chapter, separated by the space
+		 * character.
+		 * e.g.: "Film,dog,~/Videos/dog.mkv,345,3,2 43 54"
+		 */
 		string serialize() const;
 
 };

@@ -1,0 +1,87 @@
+\hypertarget{classPhoto}{}\section{Photo Class Reference}
+\label{classPhoto}\index{Photo@{Photo}}
+
+
+Inheritance diagram for Photo\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=123pt]{classPhoto__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Photo\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=123pt]{classPhoto__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classPhoto_a34ef1c73e123d2951e8a08b3b1697c05}{play} () const 
+\item 
+void {\bfseries set\+Latitude} (const float lat)\hypertarget{classPhoto_a49c4e44e93f85879e31c52178e324a7d}{}\label{classPhoto_a49c4e44e93f85879e31c52178e324a7d}
+
+\item 
+float {\bfseries get\+Latitude} () const \hypertarget{classPhoto_a26808b7206b3510e31f6dd38146e7710}{}\label{classPhoto_a26808b7206b3510e31f6dd38146e7710}
+
+\item 
+void {\bfseries set\+Longitude} (const float longi)\hypertarget{classPhoto_abd3795ba4724e9c881c0761fc8858ebd}{}\label{classPhoto_abd3795ba4724e9c881c0761fc8858ebd}
+
+\item 
+float {\bfseries get\+Longitude} () const \hypertarget{classPhoto_a02787b27b9d7c919e9ecfaa2e99a1862}{}\label{classPhoto_a02787b27b9d7c919e9ecfaa2e99a1862}
+
+\item 
+string \hyperlink{classPhoto_a72a86fd925fedd420e4367a529ed72cb}{to\+String} () const 
+\item 
+string \hyperlink{classPhoto_a6224b545b8795271c8225f6cccd80559}{serialize} () const 
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\index{Photo@{Photo}!play@{play}}
+\index{play@{play}!Photo@{Photo}}
+\subsubsection[{\texorpdfstring{play() const }{play() const }}]{\setlength{\rightskip}{0pt plus 5cm}void Photo\+::play (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classPhoto_a34ef1c73e123d2951e8a08b3b1697c05}{}\label{classPhoto_a34ef1c73e123d2951e8a08b3b1697c05}
+Play the media 
+
+Implements \hyperlink{classMedia_aabbaa8413a9eeaccc649f9c3068ddbc6}{Media}.
+
+\index{Photo@{Photo}!serialize@{serialize}}
+\index{serialize@{serialize}!Photo@{Photo}}
+\subsubsection[{\texorpdfstring{serialize() const }{serialize() const }}]{\setlength{\rightskip}{0pt plus 5cm}string Photo\+::serialize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classPhoto_a6224b545b8795271c8225f6cccd80559}{}\label{classPhoto_a6224b545b8795271c8225f6cccd80559}
+Returns a serialized representation of the object \begin{DoxyReturn}{Returns}
+the representation of the object in the format \char`\"{}\+Photo,\mbox{[}name\mbox{]},\mbox{[}path\mbox{]},\mbox{[}latitude\mbox{]},\mbox{[}longitude\mbox{]}\char`\"{}
+\end{DoxyReturn}
+e.\+g. \char`\"{}\+Photo,dog,$\sim$/\+Photos/dog.\+jpg,34.\+5,65.\+4\char`\"{} 
+
+Implements \hyperlink{classMedia_ae588d20c062218e43b084da08f2dc5c6}{Media}.
+
+\index{Photo@{Photo}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Photo@{Photo}}
+\subsubsection[{\texorpdfstring{to\+String() const }{toString() const }}]{\setlength{\rightskip}{0pt plus 5cm}string Photo\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classPhoto_a72a86fd925fedd420e4367a529ed72cb}{}\label{classPhoto_a72a86fd925fedd420e4367a529ed72cb}
+Returns an human-\/readable representation of the object. 
+
+Implements \hyperlink{classMedia_a95c1c019e23c2e365af1e5093d5232ac}{Media}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+photo.\+h\item 
+photo.\+cpp\end{DoxyCompactItemize}

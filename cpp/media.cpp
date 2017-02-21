@@ -27,5 +27,5 @@ string Media::getName() const {return m_name;}
 void Media::setPath(const string path) {m_path = path;}
 string Media::getPath() const {return m_path;}
 
-void Media::print(ostream & s/**< [in] output stream to print the info */) const{
+void Media::print(ostream & s) const{
 	s << toString();}

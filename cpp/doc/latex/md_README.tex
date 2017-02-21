@@ -1,0 +1,66 @@
+\#\+Travaux Pratiques C++/\+Objet
+
+Loïc Herbelot
+
+Réponses aux questions dans le fichier Reponses.\+md
+
+J\textquotesingle{}ai traité la plupart des questions, sauf certaines questions \char`\"{}bonus\char`\"{}
+
+\subsection*{Logiciels utilisés \+:}
+
+Pour la visualisation de médias, j\textquotesingle{}utilise {\ttfamily ristretto} et {\ttfamily mpv}
+
+\#\+Description de la sérialisation des objets \+:
+
+Les représentations suivent le format suivant \+:
+
+\begin{quote}
+Nom\+De\+La\+Classe,Attribut1, Attribut2,... \end{quote}
+
+
+Avec l\textquotesingle{}ordre des attributs déterminés par la chaîne d\textquotesingle{}héritage. Pour un objet \char`\"{}\+Film\char`\"{} (qui descend de \hyperlink{classVideo}{Video}, et donc de \hyperlink{classMedia}{Media}), on va avoir les attributs de \hyperlink{classMedia}{Media} (nom \& chemin), puis ceux de video (durée), puis les attributs de \hyperlink{classFilm}{Film} (nombre de chapitres et leur longueur)
+
+
+\begin{DoxyItemize}
+\item Un objet \char`\"{}\+Photo\char`\"{} est représenté par une chaîne
+\end{DoxyItemize}
+
+\begin{quote}
+\hyperlink{classPhoto}{Photo},nom,chemin,latitude,longitude \end{quote}
+
+
+par exemple \+:
+
+\begin{quote}
+\hyperlink{classPhoto}{Photo},Vacances,/home/user/\+Photos/\+Juin 2016/vacances.\+jpg,34.\+5,65.\+4 \end{quote}
+
+
+
+\begin{DoxyItemize}
+\item Pour un objet \char`\"{}\+Video\char`\"{} \+:
+\end{DoxyItemize}
+
+\begin{quote}
+\hyperlink{classVideo}{Video},nom,chemin,durée (en secondes) \end{quote}
+
+
+
+\begin{DoxyItemize}
+\item Pour un objet \char`\"{}\+Film\char`\"{} \+:
+\end{DoxyItemize}
+
+\begin{quote}
+\hyperlink{classFilm}{Film},nom,chemin,durée,nombre de chapitres,durée des chapitres \end{quote}
+
+
+Exemple \+:
+
+\begin{quote}
+\hyperlink{classFilm}{Film},LotR,/home/mitnick/\+Downloads/\+Lot\+R1.mkv,10800,3,1000 1234 1235 \end{quote}
+
+
+\#\+Procédure de test \+: J\textquotesingle{}ai inclu un fichier {\ttfamily testing.\+cpp} qui teste pas mal de méthodes définies dans ce TP, cela permet de vérifier assez rapidement que les méthodes marchent (ou ont l\textquotesingle{}air de marcher)
+
+Pour lancer ces tests \+: {\ttfamily make testing}
+
+(Il peut y avoir des conflits de définition d\textquotesingle{}objet {\ttfamily main} car {\ttfamily main.\+cpp} définit aussi un symbole de fonction {\ttfamily main}, donc si ) 

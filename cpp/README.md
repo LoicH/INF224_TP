@@ -1,6 +1,10 @@
 #Travaux Pratiques C++/Objet
 
+Loïc Herbelot
+
 Réponses aux questions dans le fichier Reponses.md
+
+J'ai traité la plupart des questions, sauf certaines questions "bonus"
 
 ## Logiciels utilisés :
 

@@ -1,5 +1,7 @@
 #Rendu du TP d'INF224
 
+Loïc Herbelot
+
 ##Compilation :
 Pour compiler et exécuter les projets, il suffit de lancer `make run` 
 dans les répertoires `cpp/` et `swing/`.

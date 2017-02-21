@@ -45,7 +45,18 @@ class Photo : public Media{
 		
 		float getLongitude() const;
 		
+		/**
+		 * Returns an human-readable representation of the object.
+		 */
 		string toString() const;
+		
+		/**
+		 * Returns a serialized representation of the object
+		 * @returns the representation of the object in the format
+		 * "Photo,[name],[path],[latitude],[longitude]"
+		 * 
+		 * e.g. "Photo,dog,~/Photos/dog.jpg,34.5,65.4"
+		 */
 		string serialize() const;
 
 };

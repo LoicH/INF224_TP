@@ -1,0 +1,65 @@
+{\bfseries Comme pour la fonction d\textquotesingle{}affichage, la fonction pour jouer l\textquotesingle{}objet ne modifie pas l\textquotesingle{}objet et elle doit être déclarée dans les classes \hyperlink{classPhoto}{Photo} et \hyperlink{classVideo}{Video} et dans la classe de base afin de permettre un appel polymorphique sur la hiérarchie de classes. Cependant, contrairement à la fonction d\textquotesingle{}affichage, elle ne peut pas avoir d\textquotesingle{}implementation au niveau de la classe de base (car a priori chaque type d\textquotesingle{}objet nécessite un utilitaire différent pour être joué). Comment appelle-\/t\textquotesingle{}on ce type de méthode et comment faut-\/il les déclarer ?}
+
+Ce type de fonction est appelé \char`\"{}virtuelle pure\char`\"{}. On la définit comme ceci \+: {\ttfamily virtual type\+Renvoyé nom\+De\+La\+Fonction(arguments) = 0;} pour ensuite l\textquotesingle{}implémenter dans les bonnes classes.
+
+{\bfseries Si vous avez fait correctement ce qui précède, il ne sera plus possible d\textquotesingle{}instancer des objets de la classe de base. Pourquoi ?}
+
+Une classe qui déclare une fonction virtuelle pure est une classe abstraite, non instanciable.
+
+\subsection*{Question 5 \+:}
+
+$\ast$$\ast$\+On veut maintenant pouvoir traiter génériquement une liste comprenant à la fois des photos et des vidéos. Pour ce faire créer dans main.\+cpp un tableau dont les éléments sont tantôt une photo tantôt une vidéo. Ecrire ensuite une boucle permettant d\textquotesingle{}afficher les attributs de tous les élements du tableau (ou de les \char`\"{}jouer\char`\"{}). Cette boucle n\textquotesingle{}a pas besoin de connaître le type des élements \+: elle doit pouvoir traiter de la même manière tous les objets dérivant de la classe de base. $\ast$$\ast$
+
+{\bfseries Quelle est la propriété caractéristique de l\textquotesingle{}orienté objet qui permet de faire cela ?}
+
+Grâce aux fonctions virtuelles pures et aux classes abstraites, on peut appeler des méthodes sur des objets qui sont de types différents, mais qui ont une classe mère en commun \+: c\textquotesingle{}est le polymorphisme.
+
+{\bfseries Qu\textquotesingle{}est-\/il spécifiquement nécessaire de faire dans le cas du C++ ? Quel est le type des éléments du tableau \+: est-\/ce que ce tableau contient les objets ou des pointeurs vers ces objets ? Pourquoi ? Comparer à Java.}
+
+Il faut allouer un tableau de pointeurs vers des objets {\ttfamily \hyperlink{classMedia}{Media}} \+: {\ttfamily \hyperlink{classMedia}{Media} $\ast$ media\+List\mbox{[}L\+I\+S\+T\+\_\+\+L\+E\+N\+G\+TH\mbox{]};}
+
+Le tableau contient des pointeurs vers les objets, car comme on ne connaît pas la taille en mémoire des objets, ou si elle est variable, il vaut mieux considérer une case en mémoire comme un pointeur qui pointe vers l\textquotesingle{}objet voulu.
+
+En Java ce comportement est assez opaque, le développeur n\textquotesingle{}a pas à se soucier de pointeurs/références, il alloue un tableau d\textquotesingle{}objets \+: {\ttfamily String\mbox{[}\mbox{]} my\+String\+Array = new String\mbox{[}\mbox{]}\{\char`\"{}abra\char`\"{}, \char`\"{}ca\char`\"{}, \char`\"{}dabra\char`\"{}\};}
+
+\subsection*{Question 6 \+:}
+
+{\bfseries Que faut-\/il faire pour que l\textquotesingle{}objet \hyperlink{classFilm}{Film} ait plein contrôle sur ses données et que son tableau de durées des chapitres ne puisse pas être modifié (ou pire, détruit) à son insu ? (c\textquotesingle{}est l\textquotesingle{}objet qui doit pouvoir modifier ce qui lui appartient, pas les autres !)}
+
+On peut recopier le tableau des durées en mémoire à un autre endroit, pour que l\textquotesingle{}objet ait son propre tableau, sans que personne ne puisse le modifier.
+
+{\bfseries Attention, le même problème se pose si un accesseur retourne directement ce tableau sans prendre les précautions nécessaires \+: la encore le contenu du tableau n\textquotesingle{}est pas récopié et l\textquotesingle{}appelant peut le modifier à sa guise. Quelle est la solution très simple que propose C/\+C++ pour éviter ce problème ?} Pour renvoyer un tableau et une longueur on peut faire quelque chose comme \begin{DoxyVerb}size_t getChapters(unsigned int * destination){
+        //on recopie le tableau des durées dans destination
+        ...
+        return f_length; 
+    }
+\end{DoxyVerb}
+
+
+\subsection*{Question 7 \+:}
+
+{\bfseries Contrairement à Java ou C\#, C/\+C++ ne gère pas la mémoire dynamique automatiquement ($\ast$) \+: comme il n\textquotesingle{}y a pas de ramasse miettes, tout ce qui a été créé avec new doit être détruit avec delete sinon on aura des fuites mémoires. Parmi les classes précédemment écrites quelles sont celles qu\textquotesingle{}il faut modifier afin qu\textquotesingle{}il n\textquotesingle{}y ait pas de fuite mémoire quand on détruit leurs instances ?}
+
+On utilise {\ttfamily new} seulement pour créer le tableau de durées de chapitres \+: \begin{DoxyVerb}film.h:21: f_chapters = new unsigned int[length];
+\end{DoxyVerb}
+
+
+Donc il faut rajouter {\ttfamily delete\mbox{[}\mbox{]} f\+\_\+chapters;} à {\ttfamily $\sim$\+Film()}.
+
+{\bfseries De même, la copie d\textquotesingle{}objets peut poser problème dans certains cas. Pourquoi et que faudrait-\/il faire ?}
+
+\subsection*{Question 8 \+:}
+
+{\bfseries On rappelle aussi que la liste d\textquotesingle{}objets doit en fait être une liste de pointeurs d\textquotesingle{}objets. Pourquoi ? Comparer à Java.}
+
+Comme une liste est en fait une région de la mémoire, avec des cases contiguës, il est plus pratique de stocker les pointeurs vers les objets (les pointeurs sont de taille fixe donc occupent une place fixe en mémoire) plutôt que de stocker les objets directement.
+
+En Java ce mécanisme est opaque et le développeur n\textquotesingle{}a pas à se poser la question \+: \begin{DoxyVerb}String hi[] = {"hello","world","!"};
+\end{DoxyVerb}
+
+
+\subsection*{Question 10 \+:}
+
+{\bfseries Les méthodes précédentes permettent d\textquotesingle{}assurer la cohérence de la base de données car quand on crée un objet on l\textquotesingle{}ajoute à la table adéquate. Par contre, ce ne sera pas le cas si on crée un objet directement avec new (il n\textquotesingle{}appartiendra à aucune table). Comment peut-\/on l\textquotesingle{}interdire, afin que seule la classe servant à manipuler les objets puisse en créer de nouveaux ?}
+
+Il faut déclarer les constructeurs de \hyperlink{classPhoto}{Photo}, \hyperlink{classVideo}{Video}, \hyperlink{classFilm}{Film} avec friend. 

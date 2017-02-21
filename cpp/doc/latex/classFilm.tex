@@ -1,0 +1,135 @@
+\hypertarget{classFilm}{}\section{Film Class Reference}
+\label{classFilm}\index{Film@{Film}}
+
+
+{\ttfamily \#include $<$film.\+h$>$}
+
+
+
+Inheritance diagram for Film\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=123pt]{classFilm__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Film\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=123pt]{classFilm__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classFilm_a8dab653f8a6c0635ca5ddbe0bbdd9a25}{$\sim$\+Film} ()
+\item 
+void \hyperlink{classFilm_a8024330b0d1317b147c053b47ce7bfac}{set\+Chapters} (const unsigned int chapters\mbox{[}$\,$\mbox{]}, const int length)
+\item 
+int \hyperlink{classFilm_a72227530aae37b57e2919d22fa1343ae}{get\+Chapters} (unsigned int $\ast$destination) const 
+\item 
+int \hyperlink{classFilm_a47c2898e2406de665bd31e00def57bfd}{get\+Number\+Chapters} () const 
+\item 
+void \hyperlink{classFilm_a7aa3acfe061d3af924529d761c29b74a}{print\+Chapters} () const 
+\item 
+string \hyperlink{classFilm_ab88f7ac028cd45da81c96a50a2990fee}{to\+String} () const 
+\item 
+string \hyperlink{classFilm_a660073fcb8d0c655ef49bc6d2c9a9ca1}{serialize} () const 
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Represents a movie, with chapters. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Film@{Film}!````~Film@{$\sim$\+Film}}
+\index{````~Film@{$\sim$\+Film}!Film@{Film}}
+\subsubsection[{\texorpdfstring{$\sim$\+Film()}{~Film()}}]{\setlength{\rightskip}{0pt plus 5cm}Film\+::$\sim$\+Film (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classFilm_a8dab653f8a6c0635ca5ddbe0bbdd9a25}{}\label{classFilm_a8dab653f8a6c0635ca5ddbe0bbdd9a25}
+Destroys the object and its members. 
+
+\subsection{Member Function Documentation}
+\index{Film@{Film}!get\+Chapters@{get\+Chapters}}
+\index{get\+Chapters@{get\+Chapters}!Film@{Film}}
+\subsubsection[{\texorpdfstring{get\+Chapters(unsigned int $\ast$destination) const }{getChapters(unsigned int *destination) const }}]{\setlength{\rightskip}{0pt plus 5cm}int Film\+::get\+Chapters (
+\begin{DoxyParamCaption}
+\item[{unsigned int $\ast$}]{destination}
+\end{DoxyParamCaption}
+) const}\hypertarget{classFilm_a72227530aae37b57e2919d22fa1343ae}{}\label{classFilm_a72227530aae37b57e2919d22fa1343ae}
+Returns the number of chapters and the array of chapters 
+\begin{DoxyParams}{Parameters}
+{\em destination} & a pointer to the destination array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of chapters 
+\end{DoxyReturn}
+\index{Film@{Film}!get\+Number\+Chapters@{get\+Number\+Chapters}}
+\index{get\+Number\+Chapters@{get\+Number\+Chapters}!Film@{Film}}
+\subsubsection[{\texorpdfstring{get\+Number\+Chapters() const }{getNumberChapters() const }}]{\setlength{\rightskip}{0pt plus 5cm}int Film\+::get\+Number\+Chapters (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classFilm_a47c2898e2406de665bd31e00def57bfd}{}\label{classFilm_a47c2898e2406de665bd31e00def57bfd}
+Returns the number of chapters \index{Film@{Film}!print\+Chapters@{print\+Chapters}}
+\index{print\+Chapters@{print\+Chapters}!Film@{Film}}
+\subsubsection[{\texorpdfstring{print\+Chapters() const }{printChapters() const }}]{\setlength{\rightskip}{0pt plus 5cm}void Film\+::print\+Chapters (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classFilm_a7aa3acfe061d3af924529d761c29b74a}{}\label{classFilm_a7aa3acfe061d3af924529d761c29b74a}
+Prints each chapter and its length. \index{Film@{Film}!serialize@{serialize}}
+\index{serialize@{serialize}!Film@{Film}}
+\subsubsection[{\texorpdfstring{serialize() const }{serialize() const }}]{\setlength{\rightskip}{0pt plus 5cm}string Film\+::serialize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classFilm_a660073fcb8d0c655ef49bc6d2c9a9ca1}{}\label{classFilm_a660073fcb8d0c655ef49bc6d2c9a9ca1}
+Serializes the object. \begin{DoxyReturn}{Returns}
+a string representing the object.
+\end{DoxyReturn}
+Format\+: \char`\"{}\+Film,\mbox{[}name\mbox{]},\mbox{[}path\mbox{]},\mbox{[}length\mbox{]},\mbox{[}n\mbox{]},\mbox{[}durations\mbox{]}\char`\"{}
+
+where {\itshape n} is the number of chapters and {\itshape durations} is the list of the durations of each chapter, separated by the space character. e.\+g.\+: \char`\"{}\+Film,dog,$\sim$/\+Videos/dog.\+mkv,345,3,2 43 54\char`\"{} 
+
+Implements \hyperlink{classMedia_ae588d20c062218e43b084da08f2dc5c6}{Media}.
+
+\index{Film@{Film}!set\+Chapters@{set\+Chapters}}
+\index{set\+Chapters@{set\+Chapters}!Film@{Film}}
+\subsubsection[{\texorpdfstring{set\+Chapters(const unsigned int chapters[], const int length)}{setChapters(const unsigned int chapters[], const int length)}}]{\setlength{\rightskip}{0pt plus 5cm}void Film\+::set\+Chapters (
+\begin{DoxyParamCaption}
+\item[{const unsigned int}]{chapters\mbox{[}$\,$\mbox{]}, }
+\item[{const int}]{length}
+\end{DoxyParamCaption}
+)}\hypertarget{classFilm_a8024330b0d1317b147c053b47ce7bfac}{}\label{classFilm_a8024330b0d1317b147c053b47ce7bfac}
+Sets the length and number of chapters. 
+\begin{DoxyParams}{Parameters}
+{\em chapters} & the length of each chapter in seconds \\
+\hline
+{\em length} & the number of chapters \\
+\hline
+\end{DoxyParams}
+\index{Film@{Film}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Film@{Film}}
+\subsubsection[{\texorpdfstring{to\+String() const }{toString() const }}]{\setlength{\rightskip}{0pt plus 5cm}string Film\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classFilm_ab88f7ac028cd45da81c96a50a2990fee}{}\label{classFilm_ab88f7ac028cd45da81c96a50a2990fee}
+Prints a representation of the film in the standard output. 
+
+Implements \hyperlink{classMedia_a95c1c019e23c2e365af1e5093d5232ac}{Media}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+film.\+h\item 
+film.\+cpp\end{DoxyCompactItemize}

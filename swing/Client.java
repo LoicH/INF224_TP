@@ -1,11 +1,15 @@
 //
 // Client Java pour communiquer avec le Serveur C++ 
-// eric lecolinet - telecom paristech - 2015
+//  - telecom paristech - 2015
 //
 
 import java.io.*;
 import java.net.*;
 
+/**
+ * Client communicating with the C++ server
+ * @author Eric Lecolinet
+ */
 public class Client
 {
   private static final long serialVersionUID = 1L;
@@ -15,13 +19,9 @@ public class Client
   private static BufferedReader input;
   private static BufferedWriter output;
 
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  
-  ///
-  /// Lit une requete depuis le Terminal, envoie cette requete au serveur,
-  /// recupere sa reponse et l'affiche sur le Terminal.
-  /// Noter que le programme bloque si le serveur ne repond pas.
-  ///
+	/** Connects the client to the server
+	 * @param argv The array of commands: [host, port]
+	 */
   public static void start(String argv[]) {
     String host = DEFAULT_HOST;
     int port = DEFAULT_PORT;
@@ -40,29 +40,12 @@ public class Client
     
     System.out.println("Client connected to "+host+":"+port);
 
-//    // pour lire depuis la console
-//    BufferedReader cin = new BufferedReader(new InputStreamReader(System.in));
-//    
-//    while (true) {
-//      System.out.print("Request: ");
-//      try {
-//        String request = cin.readLine();
-//        String response = client.send(request);
-//        System.out.println("Response: " + response);
-//      }
-//      catch (java.io.IOException e) {
-//        System.err.println("Client: IO error");
-//        return;
-//      }
-//    }
   }
 
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  ///
-  /// Initialise la connexion.
-  /// Renvoie une exception en cas d'erreur.
-  ///
+  /**
+   * Inits the connection with the server
+   * @throws Exception if there is an error
+   */
   public Client(String host, int port) throws UnknownHostException, IOException {
     try {
       sock = new java.net.Socket(host, port);
@@ -86,12 +69,10 @@ public class Client
     }
   }
   
-  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-  
-  ///
-  /// Envoie une requete au server et retourne sa reponse.
-  /// Noter que la methode bloque si le serveur ne repond pas.
-  ///
+	/**
+	 * Sends a request to the server
+	 * @return The response from the server
+	 */
   public static String send(String request) {
     // Envoyer la requete au serveur
     try {

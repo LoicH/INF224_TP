@@ -1,0 +1,163 @@
+\hypertarget{classVideo}{}\section{Video Class Reference}
+\label{classVideo}\index{Video@{Video}}
+
+
+{\ttfamily \#include $<$video.\+h$>$}
+
+
+
+Inheritance diagram for Video\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=123pt]{classVideo__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Video\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=123pt]{classVideo__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{classVideo_aebf7e2a8fa2bbd79335b1cf35925d190}{$\sim$\+Video} ()
+\item 
+void \hyperlink{classVideo_a28f92e1016a8757ba93211b10f89cdef}{set\+Length} (const int length)
+\item 
+void \hyperlink{classVideo_acb8fdb5186d3b35672b9218375cf4f0b}{play} () const 
+\item 
+string \hyperlink{classVideo_ad947c70ddc192dcb8e511fda6a616a4f}{to\+String} () const 
+\item 
+string \hyperlink{classVideo_a9360aa8a32752c7c732d993f2cf85144}{serialize} () const 
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classVideo_ab67336c2c5b6227a9635bc7dcd6af543}{Video} ()
+\item 
+\hyperlink{classVideo_a3d83124ab150067cbf5c44f7b54d8a28}{Video} (const string name, const string path\+Name)
+\item 
+\hyperlink{classVideo_ae46d2c3304be8339b4d4fa73d8e692cb}{Video} (const string serialized)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \hyperlink{classVideo_a05916bdf80008168a92cee6ebd8eaf25}{v\+\_\+length}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Represents a video object. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Video@{Video}!Video@{Video}}
+\index{Video@{Video}!Video@{Video}}
+\subsubsection[{\texorpdfstring{Video()}{Video()}}]{\setlength{\rightskip}{0pt plus 5cm}Video\+::\+Video (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classVideo_ab67336c2c5b6227a9635bc7dcd6af543}{}\label{classVideo_ab67336c2c5b6227a9635bc7dcd6af543}
+Default constructor \index{Video@{Video}!Video@{Video}}
+\index{Video@{Video}!Video@{Video}}
+\subsubsection[{\texorpdfstring{Video(const string name, const string path\+Name)}{Video(const string name, const string pathName)}}]{\setlength{\rightskip}{0pt plus 5cm}Video\+::\+Video (
+\begin{DoxyParamCaption}
+\item[{const string}]{name, }
+\item[{const string}]{path\+Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classVideo_a3d83124ab150067cbf5c44f7b54d8a28}{}\label{classVideo_a3d83124ab150067cbf5c44f7b54d8a28}
+Creates a new video with a name and a path to the file 
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the movie \\
+\hline
+{\em path\+Name} & the path to the file (relative or absolute) \\
+\hline
+\end{DoxyParams}
+\index{Video@{Video}!Video@{Video}}
+\index{Video@{Video}!Video@{Video}}
+\subsubsection[{\texorpdfstring{Video(const string serialized)}{Video(const string serialized)}}]{\setlength{\rightskip}{0pt plus 5cm}Video\+::\+Video (
+\begin{DoxyParamCaption}
+\item[{const string}]{serial}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classVideo_ae46d2c3304be8339b4d4fa73d8e692cb}{}\label{classVideo_ae46d2c3304be8339b4d4fa73d8e692cb}
+Creates a new video with a serialized representation of the movie 
+\begin{DoxyParams}{Parameters}
+{\em serialized} & a valid serialized representation of the movie, format\+: \char`\"{}\+Video,\mbox{[}name\mbox{]},\mbox{[}path\mbox{]},\mbox{[}length\mbox{]}\char`\"{} e.\+g.\+: \char`\"{}\+Video,dog,$\sim$/\+Videos/dog.\+mkv,345\char`\"{}\\
+\hline
+\end{DoxyParams}
+e.\+g. \char`\"{}\+Video,dog,$\sim$/\+Videos/dog.\+mkv,345\char`\"{} \index{Video@{Video}!````~Video@{$\sim$\+Video}}
+\index{````~Video@{$\sim$\+Video}!Video@{Video}}
+\subsubsection[{\texorpdfstring{$\sim$\+Video()}{~Video()}}]{\setlength{\rightskip}{0pt plus 5cm}Video\+::$\sim$\+Video (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classVideo_aebf7e2a8fa2bbd79335b1cf35925d190}{}\label{classVideo_aebf7e2a8fa2bbd79335b1cf35925d190}
+Destroys the object and its components 
+
+\subsection{Member Function Documentation}
+\index{Video@{Video}!play@{play}}
+\index{play@{play}!Video@{Video}}
+\subsubsection[{\texorpdfstring{play() const }{play() const }}]{\setlength{\rightskip}{0pt plus 5cm}void Video\+::play (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classVideo_acb8fdb5186d3b35672b9218375cf4f0b}{}\label{classVideo_acb8fdb5186d3b35672b9218375cf4f0b}
+Starts playing the movie. 
+
+Implements \hyperlink{classMedia_aabbaa8413a9eeaccc649f9c3068ddbc6}{Media}.
+
+\index{Video@{Video}!serialize@{serialize}}
+\index{serialize@{serialize}!Video@{Video}}
+\subsubsection[{\texorpdfstring{serialize() const }{serialize() const }}]{\setlength{\rightskip}{0pt plus 5cm}string Video\+::serialize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classVideo_a9360aa8a32752c7c732d993f2cf85144}{}\label{classVideo_a9360aa8a32752c7c732d993f2cf85144}
+Serializes the object. \begin{DoxyReturn}{Returns}
+a string representing the object.
+\end{DoxyReturn}
+Format\+: \char`\"{}\+Video,\mbox{[}name\mbox{]},\mbox{[}path\mbox{]},\mbox{[}length\mbox{]}\char`\"{}
+
+e.\+g.\+: \char`\"{}\+Video,dog,$\sim$/\+Videos/dog.\+mkv,345\char`\"{} 
+
+Implements \hyperlink{classMedia_ae588d20c062218e43b084da08f2dc5c6}{Media}.
+
+\index{Video@{Video}!set\+Length@{set\+Length}}
+\index{set\+Length@{set\+Length}!Video@{Video}}
+\subsubsection[{\texorpdfstring{set\+Length(const int length)}{setLength(const int length)}}]{\setlength{\rightskip}{0pt plus 5cm}void Video\+::set\+Length (
+\begin{DoxyParamCaption}
+\item[{const int}]{length}
+\end{DoxyParamCaption}
+)}\hypertarget{classVideo_a28f92e1016a8757ba93211b10f89cdef}{}\label{classVideo_a28f92e1016a8757ba93211b10f89cdef}
+Set the length of the movie 
+\begin{DoxyParams}{Parameters}
+{\em length} & The duration of the movie in seconds. \\
+\hline
+\end{DoxyParams}
+\index{Video@{Video}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Video@{Video}}
+\subsubsection[{\texorpdfstring{to\+String() const }{toString() const }}]{\setlength{\rightskip}{0pt plus 5cm}string Video\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classVideo_ad947c70ddc192dcb8e511fda6a616a4f}{}\label{classVideo_ad947c70ddc192dcb8e511fda6a616a4f}
+Prints a representation of the movie in the standard output. 
+
+Implements \hyperlink{classMedia_a95c1c019e23c2e365af1e5093d5232ac}{Media}.
+
+
+
+\subsection{Member Data Documentation}
+\index{Video@{Video}!v\+\_\+length@{v\+\_\+length}}
+\index{v\+\_\+length@{v\+\_\+length}!Video@{Video}}
+\subsubsection[{\texorpdfstring{v\+\_\+length}{v_length}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Video\+::v\+\_\+length\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classVideo_a05916bdf80008168a92cee6ebd8eaf25}{}\label{classVideo_a05916bdf80008168a92cee6ebd8eaf25}
+Length of the movie in seconds 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+video.\+h\item 
+video.\+cpp\end{DoxyCompactItemize}

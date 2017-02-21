@@ -1,0 +1,164 @@
+\hypertarget{classMedia}{}\section{Media Class Reference}
+\label{classMedia}\index{Media@{Media}}
+
+
+{\ttfamily \#include $<$media.\+h$>$}
+
+
+
+Inheritance diagram for Media\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{classMedia__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMedia_a6e2ee1b8da6d724fb40a00ff4101d2df}{Media} ()
+\item 
+\hyperlink{classMedia_a0fcf9ae69f2d91790f3a1092dd867b91}{Media} (const string name, const string path)
+\item 
+void \hyperlink{classMedia_a51029a762fb97348c2accde515d10ff2}{set\+Name} (const string name)
+\item 
+string \hyperlink{classMedia_a6593900eea85ce823c5acad032339a1e}{get\+Name} () const 
+\item 
+void \hyperlink{classMedia_a309c0af39281e4621c5d32872008a2d7}{set\+Path} (const string path)
+\item 
+string \hyperlink{classMedia_ad2cbd7dec789109234a5db001a75153e}{get\+Path} () const 
+\item 
+void \hyperlink{classMedia_a62c3a585e2d7f5d0b8bb9617d8b4c3f5}{print} (ostream \&s) const 
+\item 
+virtual void \hyperlink{classMedia_aabbaa8413a9eeaccc649f9c3068ddbc6}{play} () const =0
+\item 
+virtual string \hyperlink{classMedia_a95c1c019e23c2e365af1e5093d5232ac}{to\+String} () const =0
+\item 
+virtual string \hyperlink{classMedia_ae588d20c062218e43b084da08f2dc5c6}{serialize} () const =0
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{classMedia_a853f210993023f79bf9606a9f86f9de3}{m\+\_\+name}
+\item 
+string \hyperlink{classMedia_abc2766c1b082546de88bff34e60f5809}{m\+\_\+path}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class modeling multimedia objects 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Media@{Media}!Media@{Media}}
+\index{Media@{Media}!Media@{Media}}
+\subsubsection[{\texorpdfstring{Media()}{Media()}}]{\setlength{\rightskip}{0pt plus 5cm}Media\+::\+Media (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classMedia_a6e2ee1b8da6d724fb40a00ff4101d2df}{}\label{classMedia_a6e2ee1b8da6d724fb40a00ff4101d2df}
+Default constructor \index{Media@{Media}!Media@{Media}}
+\index{Media@{Media}!Media@{Media}}
+\subsubsection[{\texorpdfstring{Media(const string name, const string path)}{Media(const string name, const string path)}}]{\setlength{\rightskip}{0pt plus 5cm}Media\+::\+Media (
+\begin{DoxyParamCaption}
+\item[{const string}]{name, }
+\item[{const string}]{path}
+\end{DoxyParamCaption}
+)}\hypertarget{classMedia_a0fcf9ae69f2d91790f3a1092dd867b91}{}\label{classMedia_a0fcf9ae69f2d91790f3a1092dd867b91}
+Creates a media object with a name and a path to the file 
+\begin{DoxyParams}{Parameters}
+{\em name} & the name of the media \\
+\hline
+{\em path} & the path to the file, relative or absolute. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{Media@{Media}!get\+Name@{get\+Name}}
+\index{get\+Name@{get\+Name}!Media@{Media}}
+\subsubsection[{\texorpdfstring{get\+Name() const }{getName() const }}]{\setlength{\rightskip}{0pt plus 5cm}string Media\+::get\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classMedia_a6593900eea85ce823c5acad032339a1e}{}\label{classMedia_a6593900eea85ce823c5acad032339a1e}
+Returns the name of the media \index{Media@{Media}!get\+Path@{get\+Path}}
+\index{get\+Path@{get\+Path}!Media@{Media}}
+\subsubsection[{\texorpdfstring{get\+Path() const }{getPath() const }}]{\setlength{\rightskip}{0pt plus 5cm}string Media\+::get\+Path (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classMedia_ad2cbd7dec789109234a5db001a75153e}{}\label{classMedia_ad2cbd7dec789109234a5db001a75153e}
+Returns the path to the file represented by the object. \index{Media@{Media}!play@{play}}
+\index{play@{play}!Media@{Media}}
+\subsubsection[{\texorpdfstring{play() const =0}{play() const =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Media\+::play (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classMedia_aabbaa8413a9eeaccc649f9c3068ddbc6}{}\label{classMedia_aabbaa8413a9eeaccc649f9c3068ddbc6}
+Play the media 
+
+Implemented in \hyperlink{classVideo_acb8fdb5186d3b35672b9218375cf4f0b}{Video}, and \hyperlink{classPhoto_a34ef1c73e123d2951e8a08b3b1697c05}{Photo}.
+
+\index{Media@{Media}!print@{print}}
+\index{print@{print}!Media@{Media}}
+\subsubsection[{\texorpdfstring{print(ostream \&s) const }{print(ostream &s) const }}]{\setlength{\rightskip}{0pt plus 5cm}void Media\+::print (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{s}
+\end{DoxyParamCaption}
+) const}\hypertarget{classMedia_a62c3a585e2d7f5d0b8bb9617d8b4c3f5}{}\label{classMedia_a62c3a585e2d7f5d0b8bb9617d8b4c3f5}
+Prints the representation of the object. 
+\begin{DoxyParams}{Parameters}
+{\em s} & the outputstream that will print the representation \\
+\hline
+\end{DoxyParams}
+\index{Media@{Media}!serialize@{serialize}}
+\index{serialize@{serialize}!Media@{Media}}
+\subsubsection[{\texorpdfstring{serialize() const =0}{serialize() const =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual string Media\+::serialize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classMedia_ae588d20c062218e43b084da08f2dc5c6}{}\label{classMedia_ae588d20c062218e43b084da08f2dc5c6}
+Returns a serialized representation of the media 
+
+Implemented in \hyperlink{classFilm_a660073fcb8d0c655ef49bc6d2c9a9ca1}{Film}, \hyperlink{classVideo_a9360aa8a32752c7c732d993f2cf85144}{Video}, and \hyperlink{classPhoto_a6224b545b8795271c8225f6cccd80559}{Photo}.
+
+\index{Media@{Media}!set\+Name@{set\+Name}}
+\index{set\+Name@{set\+Name}!Media@{Media}}
+\subsubsection[{\texorpdfstring{set\+Name(const string name)}{setName(const string name)}}]{\setlength{\rightskip}{0pt plus 5cm}void Media\+::set\+Name (
+\begin{DoxyParamCaption}
+\item[{const string}]{name}
+\end{DoxyParamCaption}
+)}\hypertarget{classMedia_a51029a762fb97348c2accde515d10ff2}{}\label{classMedia_a51029a762fb97348c2accde515d10ff2}
+Sets the name of the media \index{Media@{Media}!set\+Path@{set\+Path}}
+\index{set\+Path@{set\+Path}!Media@{Media}}
+\subsubsection[{\texorpdfstring{set\+Path(const string path)}{setPath(const string path)}}]{\setlength{\rightskip}{0pt plus 5cm}void Media\+::set\+Path (
+\begin{DoxyParamCaption}
+\item[{const string}]{path}
+\end{DoxyParamCaption}
+)}\hypertarget{classMedia_a309c0af39281e4621c5d32872008a2d7}{}\label{classMedia_a309c0af39281e4621c5d32872008a2d7}
+Sets the path to the file represented by the object. \index{Media@{Media}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!Media@{Media}}
+\subsubsection[{\texorpdfstring{to\+String() const =0}{toString() const =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual string Media\+::to\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classMedia_a95c1c019e23c2e365af1e5093d5232ac}{}\label{classMedia_a95c1c019e23c2e365af1e5093d5232ac}
+Returns a \char`\"{}pretty\char`\"{} representation of the media 
+
+Implemented in \hyperlink{classFilm_ab88f7ac028cd45da81c96a50a2990fee}{Film}, \hyperlink{classVideo_ad947c70ddc192dcb8e511fda6a616a4f}{Video}, and \hyperlink{classPhoto_a72a86fd925fedd420e4367a529ed72cb}{Photo}.
+
+
+
+\subsection{Member Data Documentation}
+\index{Media@{Media}!m\+\_\+name@{m\+\_\+name}}
+\index{m\+\_\+name@{m\+\_\+name}!Media@{Media}}
+\subsubsection[{\texorpdfstring{m\+\_\+name}{m_name}}]{\setlength{\rightskip}{0pt plus 5cm}string Media\+::m\+\_\+name\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classMedia_a853f210993023f79bf9606a9f86f9de3}{}\label{classMedia_a853f210993023f79bf9606a9f86f9de3}
+Name of the media \index{Media@{Media}!m\+\_\+path@{m\+\_\+path}}
+\index{m\+\_\+path@{m\+\_\+path}!Media@{Media}}
+\subsubsection[{\texorpdfstring{m\+\_\+path}{m_path}}]{\setlength{\rightskip}{0pt plus 5cm}string Media\+::m\+\_\+path\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classMedia_abc2766c1b082546de88bff34e60f5809}{}\label{classMedia_abc2766c1b082546de88bff34e60f5809}
+Absolute or relative path 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+media.\+h\item 
+media.\+cpp\end{DoxyCompactItemize}

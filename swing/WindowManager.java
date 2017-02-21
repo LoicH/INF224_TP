@@ -18,17 +18,23 @@ import javax.swing.JTextArea;
 public class WindowManager {
 	private static final long serialVersionUID = 1L;
 
+	/** The text input box */
 	private static JTextArea textArea;
+	
+	/** Panel printing the results of requests */
 	private static JLabel results;
 
+	/** Returns a the input text from the text input box */
 	public static String getInputText(){
 		return textArea.getText();
 	}
 	
+	/** Display text into the result panel */
 	public static void display(String result){
 		results.setText(result);
 	}
 	
+	/** Sets and displays the GUI */
 	public static void prepareGUI(){
 		JFrame frame = new JFrame("Télécommande");
 
@@ -42,11 +48,12 @@ public class WindowManager {
 		textArea = new JTextArea(3, 80);
 		results = new JLabel();
 		
+		// Crée les 3 actions qui serviront pour les boutons et menus
 		SearchAction searchAction = new SearchAction("Search");
 		PlayAction playAction = new PlayAction("Play");
 		QuitAction quitAction = new QuitAction("Quit");
 		
-		
+		// Les 3 boutons à droite
 		JButton searchBttn = new JButton(searchAction);
 		JButton quitBttn = new JButton(quitAction);
 		JButton playBttn = new JButton(playAction);
@@ -57,7 +64,7 @@ public class WindowManager {
 		buttonPanel.add(playBttn, BorderLayout.EAST);
 		buttonPanel.add(quitBttn, BorderLayout.SOUTH);
 		
-
+		// La barre de menu en haut
 		JMenuBar menuBar= new JMenuBar();
 		JMenu menu = new JMenu("Menu");
 
@@ -84,7 +91,9 @@ public class WindowManager {
 	
 }
 
-
+/**
+ * Action to send a Search request to the server
+ */
 class SearchAction extends AbstractAction {
 
 	private static final long serialVersionUID = 6421607840255999181L;
@@ -102,6 +111,9 @@ class SearchAction extends AbstractAction {
 	
 }
 
+/**
+ * Action to send a Play request to the server
+ */
 class PlayAction extends AbstractAction {
 
 	private static final long serialVersionUID = -3561039987947126794L;
@@ -119,6 +131,9 @@ class PlayAction extends AbstractAction {
 	
 }
 
+/**
+ * Action to quit the applet
+ */
 class QuitAction extends AbstractAction {
 
 	private static final long serialVersionUID = -1250491014299297851L;

@@ -1,0 +1,36 @@
+\hypertarget{classMyBase}{}\section{My\+Base Class Reference}
+\label{classMyBase}\index{My\+Base@{My\+Base}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classMyBase_a818864f09718a0aa6d65f5ac5733b689}{process\+Request} (\hyperlink{classcppu_1_1TCPConnection}{T\+C\+P\+Connection} \&cnx, const string \&request, string \&response)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{My\+Base@{My\+Base}!process\+Request@{process\+Request}}
+\index{process\+Request@{process\+Request}!My\+Base@{My\+Base}}
+\subsubsection[{\texorpdfstring{process\+Request(\+T\+C\+P\+Connection \&cnx, const string \&request, string \&response)}{processRequest(TCPConnection &cnx, const string &request, string &response)}}]{\setlength{\rightskip}{0pt plus 5cm}bool My\+Base\+::process\+Request (
+\begin{DoxyParamCaption}
+\item[{{\bf T\+C\+P\+Connection} \&}]{cnx, }
+\item[{const string \&}]{request, }
+\item[{string \&}]{response}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classMyBase_a818864f09718a0aa6d65f5ac5733b689}{}\label{classMyBase_a818864f09718a0aa6d65f5ac5733b689}
+Method called for each request 
+\begin{DoxyParams}{Parameters}
+{\em cnx} & \\
+\hline
+{\em request} & the request sent by the client \\
+\hline
+{\em response} & the answer to send to the client \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if everything went fine, or false if we want to end to end the connection. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+main.\+cpp\end{DoxyCompactItemize}

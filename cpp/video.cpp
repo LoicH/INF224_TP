@@ -8,11 +8,11 @@ void Video::println(string c) const{
 
 Video::Video() : Media(){
 	println("Video object created from nothing");
-	v_length = 100;
+	v_length = 0;
 }
 Video::Video(const string name, const string pathName) : Media(name, pathName){
 	println("Video object " + name + " created from " + pathName);
-	v_length = 10;
+	v_length = 0;
 }
 
 
