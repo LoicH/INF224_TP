@@ -1,34 +1,27 @@
-# Practical session of 'Programming Paradigms: Theory & Practice' 
-## at Télécom ParisTech
+# Project for 'Programming Paradigms: Theory & Practice' 
+## Course codename: "INF224" at Télécom ParisTech
 
-# Rendu du TP d'INF224
+## Build:
+To build and run the project, just execute `make run` 
+in the following directories: `cpp/` and `swing/`.
 
-Loïc Herbelot
+## Notes on the C++ :
 
-## Compilation :
-Pour compiler et exécuter les projets, il suffit de lancer `make run` 
-dans les répertoires `cpp/` et `swing/`.
+The `main` creates files and starts the server.
 
-## Notes sur le C++ :
-
-Le main consiste en un programme qui crée des fichiers et lance un serveur
-
-Exemple de fichiers créés :
+Examples of such files:
 
 * photo[1,2,3]
 * vid[1,2]
 * film[1,2]
 
-Commandes reconnues :
+Availables commands:
 
-* `print [nomdumedia]`, exemple : `print film1`
+* `print [nomdumedia]`, example : `print film1`
 * `play [nomdumedia]`
-* `quit` : coupe la connexion.
+* `quit` : closes the connection.
 
-## Pour le Java:
+## Notes about the Java:
 
-L'interface est assez simpliste, on a une barre de recherche, 3 boutons
-pour effectuer des actions.
-
-Le résultat des actions s'affiche en bas de la fenêtre.
-
+The user interface is very light, there is a search bar, 3 action buttons.
+The result of actions is displayed at the bottom of the window.
