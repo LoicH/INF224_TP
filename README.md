@@ -1,12 +1,15 @@
-#Rendu du TP d'INF224
+# Practical session of 'Programming Paradigms: Theory & Practice' 
+## at Télécom ParisTech
+
+# Rendu du TP d'INF224
 
 Loïc Herbelot
 
-##Compilation :
+## Compilation :
 Pour compiler et exécuter les projets, il suffit de lancer `make run` 
 dans les répertoires `cpp/` et `swing/`.
 
-##Notes sur le C++ :
+## Notes sur le C++ :
 
 Le main consiste en un programme qui crée des fichiers et lance un serveur
 
@@ -22,7 +25,7 @@ Commandes reconnues :
 * `play [nomdumedia]`
 * `quit` : coupe la connexion.
 
-##Pour le Java:
+## Pour le Java:
 
 L'interface est assez simpliste, on a une barre de recherche, 3 boutons
 pour effectuer des actions.
